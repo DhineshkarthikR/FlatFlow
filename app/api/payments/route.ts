@@ -55,6 +55,7 @@ export async function POST(request: NextRequest) {
             amount: MAINTENANCE_FEE,
             currency: "INR",
             paymentId: payment._id,
+            keyId: process.env.RAZORPAY_KEY_ID,
         }, 201);
     } catch (error) {
         const message = error instanceof Error ? error.message : "Internal server error";

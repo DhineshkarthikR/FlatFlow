@@ -89,7 +89,7 @@ export default function PaymentsPage() {
             }
 
             const options: RazorpayOptions = {
-                key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "",
+                key: data.data.keyId || process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || "",
                 amount: data.data.amount * 100,
                 currency: "INR",
                 name: "FlatFlow",
