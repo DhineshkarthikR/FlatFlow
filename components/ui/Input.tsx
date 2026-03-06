@@ -21,11 +21,11 @@ export default function Input({
     const currentType = isPassword ? (showPassword ? "text" : "password") : type;
 
     return (
-        <div className="space-y-1">
+        <div className="space-y-1.5">
             {label && (
                 <label
                     htmlFor={inputId}
-                    className="block text-sm font-medium text-heading"
+                    className="block text-sm font-medium text-gray-300"
                 >
                     {label}
                 </label>
@@ -34,15 +34,14 @@ export default function Input({
                 <input
                     id={inputId}
                     type={currentType}
-                    className={`w-full px-3 py-2 rounded-lg border border-gray-300 text-sm text-heading placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors ${error ? "border-red-500 focus:ring-red-500" : ""
-                        } ${isPassword ? "pr-10" : ""} ${className}`}
+                    className={`w-full px-4 py-2.5 bg-[#0B0F19] rounded-xl border border-white/10 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 transition-all shadow-inner ${error ? "border-red-500/50 focus:ring-red-500/50" : "hover:border-white/20"} ${isPassword ? "pr-10" : ""} ${className}`}
                     {...props}
                 />
                 {isPassword && (
                     <button
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
-                        className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 focus:outline-none"
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300 focus:outline-none transition-colors"
                     >
                         {showPassword ? (
                             <EyeOff className="h-4 w-4" />
@@ -52,7 +51,7 @@ export default function Input({
                     </button>
                 )}
             </div>
-            {error && <p className="text-xs text-red-600">{error}</p>}
+            {error && <p className="text-xs text-red-400 mt-1">{error}</p>}
         </div>
     );
 }
@@ -72,23 +71,22 @@ export function Textarea({
     const inputId = id || label?.toLowerCase().replace(/\s+/g, "-");
 
     return (
-        <div className="space-y-1">
+        <div className="space-y-1.5">
             {label && (
                 <label
                     htmlFor={inputId}
-                    className="block text-sm font-medium text-heading"
+                    className="block text-sm font-medium text-gray-300"
                 >
                     {label}
                 </label>
             )}
             <textarea
                 id={inputId}
-                className={`w-full px-3 py-2 rounded-lg border border-gray-300 text-sm text-heading placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors resize-none ${error ? "border-red-500 focus:ring-red-500" : ""
-                    } ${className}`}
+                className={`w-full px-4 py-2.5 bg-[#0B0F19] rounded-xl border border-white/10 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 transition-all shadow-inner resize-none ${error ? "border-red-500/50 focus:ring-red-500/50" : "hover:border-white/20"} ${className}`}
                 rows={4}
                 {...props}
             />
-            {error && <p className="text-xs text-red-600">{error}</p>}
+            {error && <p className="text-xs text-red-400 mt-1">{error}</p>}
         </div>
     );
 }
@@ -110,28 +108,27 @@ export function Select({
     const inputId = id || label?.toLowerCase().replace(/\s+/g, "-");
 
     return (
-        <div className="space-y-1">
+        <div className="space-y-1.5">
             {label && (
                 <label
                     htmlFor={inputId}
-                    className="block text-sm font-medium text-heading"
+                    className="block text-sm font-medium text-gray-300"
                 >
                     {label}
                 </label>
             )}
             <select
                 id={inputId}
-                className={`w-full px-3 py-2 rounded-lg border border-gray-300 text-sm text-heading focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors ${error ? "border-red-500 focus:ring-red-500" : ""
-                    } ${className}`}
+                className={`w-full px-4 py-2.5 bg-[#0B0F19] rounded-xl border border-white/10 text-sm text-white focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 transition-all shadow-inner appearance-none ${error ? "border-red-500/50 focus:ring-red-500/50" : "hover:border-white/20"} ${className}`}
                 {...props}
             >
                 {options.map((opt) => (
-                    <option key={opt.value} value={opt.value}>
+                    <option key={opt.value} value={opt.value} className="bg-[#131A2A] text-white">
                         {opt.label}
                     </option>
                 ))}
             </select>
-            {error && <p className="text-xs text-red-600">{error}</p>}
+            {error && <p className="text-xs text-red-400 mt-1">{error}</p>}
         </div>
     );
 }

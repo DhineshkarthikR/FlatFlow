@@ -17,25 +17,25 @@ export default function Button({
     ...props
 }: ButtonProps) {
     const baseStyles =
-        "inline-flex items-center justify-center font-medium rounded-lg transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed";
+        "inline-flex items-center justify-center font-medium rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#0B0F19] disabled:opacity-50 disabled:cursor-not-allowed";
 
     const variants = {
         primary:
-            "bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500",
+            "bg-primary-600 text-white hover:bg-primary-500 focus:ring-primary-500 shadow-[0_0_15px_rgba(79,70,229,0.3)] hover:shadow-[0_0_25px_rgba(79,70,229,0.5)]",
         secondary:
-            "bg-surface text-heading hover:bg-gray-100 focus:ring-gray-300",
+            "bg-[#131A2A] text-white hover:bg-white/10 focus:ring-gray-600 border border-white/5",
         outline:
-            "border border-gray-300 text-body hover:bg-gray-50 focus:ring-primary-500",
+            "border border-white/10 text-gray-300 hover:text-white hover:bg-white/5 focus:ring-primary-500/50",
         danger:
-            "bg-red-600 text-white hover:bg-red-700 focus:ring-red-500",
+            "bg-red-600 text-white hover:bg-red-500 focus:ring-red-500 shadow-[0_0_15px_rgba(220,38,38,0.3)]",
         ghost:
-            "text-body hover:bg-gray-100 focus:ring-gray-300",
+            "text-gray-400 hover:text-white hover:bg-white/5 focus:ring-gray-600",
     };
 
     const sizes = {
-        sm: "px-3 py-1.5 text-sm",
-        md: "px-4 py-2 text-sm",
-        lg: "px-6 py-3 text-base",
+        sm: "px-4 py-2 text-sm",
+        md: "px-6 py-2.5 text-sm",
+        lg: "px-8 py-3.5 text-base",
     };
 
     return (

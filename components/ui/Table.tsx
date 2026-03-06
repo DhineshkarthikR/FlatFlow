@@ -18,37 +18,37 @@ export default function Table<T extends Record<string, unknown>>({
     emptyMessage = "No data found",
 }: TableProps<T>) {
     return (
-        <div className="overflow-x-auto rounded-lg border border-gray-200">
-            <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-surface">
+        <div className="overflow-x-auto rounded-xl border border-white/5 bg-[#131A2A]/50 backdrop-blur-md">
+            <table className="min-w-full divide-y divide-white/5">
+                <thead className="bg-[#0B0F19]/50">
                     <tr>
                         {columns.map((col) => (
                             <th
                                 key={col.key}
-                                className="px-4 py-3 text-left text-xs font-semibold text-muted uppercase tracking-wider"
+                                className="px-6 py-4 text-left text-xs font-semibold text-gray-400 uppercase tracking-wider"
                             >
                                 {col.label}
                             </th>
                         ))}
                     </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
+                <tbody className="divide-y divide-white/5 bg-transparent">
                     {data.length === 0 ? (
                         <tr>
                             <td
                                 colSpan={columns.length}
-                                className="px-4 py-8 text-center text-muted text-sm"
+                                className="px-6 py-12 text-center text-gray-500 text-sm"
                             >
                                 {emptyMessage}
                             </td>
                         </tr>
                     ) : (
                         data.map((item, index) => (
-                            <tr key={index} className="hover:bg-gray-50 transition-colors">
+                            <tr key={index} className="hover:bg-white/5 transition-colors duration-200">
                                 {columns.map((col) => (
                                     <td
                                         key={col.key}
-                                        className="px-4 py-3 text-sm text-body whitespace-nowrap"
+                                        className="px-6 py-4 text-sm text-gray-300 whitespace-nowrap"
                                     >
                                         {col.render
                                             ? col.render(item)

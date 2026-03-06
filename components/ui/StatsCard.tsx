@@ -20,21 +20,21 @@ export default function StatsCard({
 }: StatsCardProps) {
     return (
         <div
-            className={`bg-white rounded-lg border border-gray-200 shadow-sm p-6 ${className}`}
+            className={`bg-[#131A2A]/80 backdrop-blur-md rounded-2xl border border-white/5 shadow-lg p-6 sm:p-8 hover:-translate-y-1 transition-transform duration-300 ${className}`}
         >
             <div className="flex items-center justify-between">
-                <div className="space-y-1">
-                    <p className="text-sm font-medium text-muted">{title}</p>
-                    <p className="text-2xl font-bold text-heading">{value}</p>
+                <div className="space-y-1.5">
+                    <p className="text-sm font-medium text-gray-400">{title}</p>
+                    <p className="text-3xl font-extrabold text-white tracking-tight">{value}</p>
                     {subtitle && (
-                        <p className="text-xs text-muted">{subtitle}</p>
+                        <p className="text-xs text-gray-500">{subtitle}</p>
                     )}
                     {trend && (
-                        <p className="text-xs text-green-600 font-medium">{trend}</p>
+                        <p className="text-xs text-cyan-400 font-medium tracking-wide">{trend}</p>
                     )}
                 </div>
-                <div className="h-12 w-12 rounded-lg bg-primary-50 flex items-center justify-center">
-                    <Icon className="h-6 w-6 text-primary-600" />
+                <div className="h-14 w-14 rounded-xl bg-gradient-to-br from-primary-600/20 to-cyan-500/20 border border-primary-500/30 flex items-center justify-center shadow-[inset_0_0_15px_rgba(79,70,229,0.2)]">
+                    <Icon className="h-7 w-7 text-primary-400 drop-shadow-[0_0_8px_rgba(79,70,229,0.8)]" />
                 </div>
             </div>
         </div>
