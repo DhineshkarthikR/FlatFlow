@@ -22,6 +22,8 @@ export default function DashboardLayout({
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState(true);
 
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
     useEffect(() => {
         async function fetchUser() {
             try {
@@ -58,9 +60,21 @@ export default function DashboardLayout({
 
     return (
         <div className="min-h-screen bg-surface">
-            <Sidebar role="resident" onLogout={handleLogout} />
-            <Navbar userName={user.name} userRole={user.role} onLogout={handleLogout} />
-            <main className="ml-64 mt-16 p-6">{children}</main>
+            <Sidebar
+                role="resident"
+                onLogout={handleLogout}
+                isOpen={isSidebarOpen}
+                setIsOpen={setIsSidebarOpen}
+            />
+            <Navbar
+                userName={user.name}
+                userRole={user.role}
+                onLogout={handleLogout}
+                onMenuClick={() => setIsSidebarOpen(true)}
+            />
+            <main className="lg:ml-64 mt-16 p-4 sm:p-6 transition-all duration-300">
+                {children}
+            </main>
         </div>
     );
 }

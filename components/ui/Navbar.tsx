@@ -2,15 +2,16 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { User, Bell, Settings, LogOut, ChevronDown } from "lucide-react";
+import { User, Bell, Settings, LogOut, ChevronDown, Menu } from "lucide-react";
 
 interface NavbarProps {
     userName: string;
     userRole: string;
     onLogout: () => void;
+    onMenuClick: () => void;
 }
 
-export default function Navbar({ userName, userRole, onLogout }: NavbarProps) {
+export default function Navbar({ userName, userRole, onLogout, onMenuClick }: NavbarProps) {
     const [isProfileOpen, setIsProfileOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -27,9 +28,15 @@ export default function Navbar({ userName, userRole, onLogout }: NavbarProps) {
     const profileLink = userRole === "admin" ? "/admin/profile" : "/dashboard/profile";
 
     return (
-        <header className="fixed top-0 left-64 right-0 h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6 z-30">
-            <div>
-                <h1 className="text-lg font-semibold text-heading">
+        <header className="fixed top-0 left-0 lg:left-64 right-0 h-16 bg-white border-b border-gray-200 flex items-center justify-between px-4 sm:px-6 z-30">
+            <div className="flex items-center gap-3">
+                <button
+                    onClick={onMenuClick}
+                    className="lg:hidden p-2 -ml-2 text-muted hover:bg-gray-100 rounded-lg"
+                >
+                    <Menu className="h-6 w-6" />
+                </button>
+                <h1 className="text-lg font-semibold text-heading truncate max-w-[150px] sm:max-w-none">
                     {userRole === "admin" ? "Admin Panel" : "Resident Portal"}
                 </h1>
             </div>

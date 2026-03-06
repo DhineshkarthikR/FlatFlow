@@ -11,9 +11,9 @@ import {
     Users,
     UserCheck,
     BarChart3,
-    Receipt,
     LogOut,
     Building2,
+    X,
 } from "lucide-react";
 
 interface SidebarLink {
@@ -44,54 +44,80 @@ const adminLinks: SidebarLink[] = [
 interface SidebarProps {
     role: "admin" | "resident";
     onLogout: () => void;
+    isOpen: boolean;
+    setIsOpen: (isOpen: boolean) => void;
 }
 
-export default function Sidebar({ role, onLogout }: SidebarProps) {
+export default function Sidebar({ role, onLogout, isOpen, setIsOpen }: SidebarProps) {
     const pathname = usePathname();
     const links = role === "admin" ? adminLinks : residentLinks;
 
     return (
-        <aside className="fixed left-0 top-0 h-full w-64 bg-white border-r border-gray-200 flex flex-col z-40">
-            <div className="p-6 border-b border-gray-200">
-                <Link href={role === "admin" ? "/admin" : "/dashboard"} className="flex items-center gap-2">
-                    <Building2 className="h-7 w-7 text-primary-600" />
-                    <span className="text-xl font-bold text-heading">FlatFlow</span>
-                </Link>
-            </div>
+        <>
+            {/* Mobile Overlay */}
+            {isOpen && (
+                <div
+                    className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+                    onClick={() => setIsOpen(false)}
+                />
+            )}
 
-            <nav className="flex-1 p-4 space-y-1 overflow-y-auto">
-                {links.map((link) => {
-                    const isActive =
-                        pathname === link.href ||
-                        (link.href !== "/dashboard" &&
-                            link.href !== "/admin" &&
-                            pathname.startsWith(link.href));
+            {/* Sidebar */}
+            <aside
+                className={`fixed left-0 top-0 h-full w-64 bg-white border-r border-gray-200 flex flex-col z-50 transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
+                    }`}
+            >
+                <div className="p-6 border-b border-gray-200 flex items-center justify-between">
+                    <Link href={role === "admin" ? "/admin" : "/dashboard"} className="flex items-center gap-2">
+                        <Building2 className="h-7 w-7 text-primary-600" />
+                        <span className="text-xl font-bold text-heading">FlatFlow</span>
+                    </Link>
+                    <button
+                        className="lg:hidden p-2 text-muted hover:bg-gray-100 rounded-lg"
+                        onClick={() => setIsOpen(false)}
+                    >
+                        <X className="h-5 w-5" />
+                    </button>
+                </div>
 
-                    return (
-                        <Link
-                            key={link.href}
-                            href={link.href}
-                            className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${isActive
-                                ? "bg-primary-50 text-primary-700"
-                                : "text-body hover:bg-gray-50"
-                                }`}
-                        >
-                            {link.icon}
-                            {link.label}
-                        </Link>
-                    );
-                })}
-            </nav>
+                <nav className="flex-1 p-4 space-y-1 overflow-y-auto">
+                    {links.map((link) => {
+                        const isActive =
+                            pathname === link.href ||
+                            (link.href !== "/dashboard" &&
+                                link.href !== "/admin" &&
+                                pathname.startsWith(link.href));
 
-            <div className="p-4 border-t border-gray-200">
-                <button
-                    onClick={onLogout}
-                    className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-body hover:bg-gray-50 transition-colors w-full"
-                >
-                    <LogOut className="h-5 w-5" />
-                    Logout
-                </button>
-            </div>
-        </aside>
+                        return (
+                            <Link
+                                key={link.href}
+                                href={link.href}
+                                onClick={() => setIsOpen(false)}
+                                className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${isActive
+                                    ? "bg-primary-50 text-primary-700"
+                                    : "text-body hover:bg-gray-50"
+                                    }`}
+                            >
+                                {link.icon}
+                                {link.label}
+                            </Link>
+                        );
+                    })}
+                </nav>
+
+                <div className="p-4 border-t border-gray-200">
+                    <button
+                        onClick={() => {
+                            setIsOpen(false);
+                            onLogout();
+                        }}
+                        className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-body hover:bg-gray-50 transition-colors w-full"
+                    >
+                        <LogOut className="h-5 w-5" />
+                        Logout
+                    </button>
+                </div>
+            </aside>
+        </>
     );
 }
