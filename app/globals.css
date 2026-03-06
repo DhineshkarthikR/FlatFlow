@@ -5,16 +5,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  --primary: #2563EB;
-  --primary-hover: #1D4ED8;
-  --surface: #F8FAFC;
-  --heading: #111827;
-  --body: #374151;
-  --muted: #6B7280;
-  --border: #E5E7EB;
-  --success: #059669;
-  --warning: #D97706;
-  --danger: #DC2626;
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --background: #0B0F19;
+  --surface: #131A2A;
+  --heading: #FFFFFF;
+  --body: #94A3B8;
+  --muted: #64748B;
+  --border: #1E293B;
+  --success: #10B981;
+  --warning: #F59E0B;
+  --danger: #EF4444;
 }
 
 * {
@@ -26,7 +27,7 @@
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   color: var(--body);
-  background-color: #FFFFFF;
+  background-color: var(--background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -34,6 +35,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   color: var(--heading);
   font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 @layer utilities {
