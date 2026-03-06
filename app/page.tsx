@@ -100,7 +100,7 @@ export default function LandingPage() {
                                 <Link href="/register" className="relative group overflow-hidden rounded-lg p-[1px]">
                                     <span className="absolute inset-0 bg-gradient-to-r from-primary-600 via-cyan-500 to-primary-600 rounded-lg opacity-80 group-hover:opacity-100 transition-opacity duration-300 bg-[length:200%_auto] animate-[gradient_2s_linear_infinite]" />
                                     <div className="relative flex items-center gap-2 px-6 py-2.5 bg-[#0B0F19] rounded-lg transition-all duration-300 group-hover:bg-opacity-0">
-                                        <span className="text-sm font-medium text-white">Start Building</span>
+                                        <span className="text-sm font-medium text-white">Get Started</span>
                                     </div>
                                 </Link>
                             </div>
@@ -116,15 +116,15 @@ export default function LandingPage() {
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
                             </span>
-                            <span className="uppercase tracking-[0.2em] text-xs">Rethink How You Build</span>
+                            <span className="uppercase tracking-[0.2em] text-xs">Rethink Society Management</span>
                         </div>
                         <h1 className="text-5xl sm:text-7xl lg:text-8xl font-heading font-extrabold text-white leading-[1.05] mb-8 max-w-5xl mx-auto tracking-tight" data-animate>
-                            Build UI & logic<br />
+                            Modernize your<br />
                             <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-400 via-cyan-400 to-indigo-400 drop-shadow-[0_0_30px_rgba(79,70,229,0.3)]">
                                 <span className="inline-flex items-center gap-3">
-                                    <Code2 className="h-14 w-14 sm:h-20 sm:w-20 text-primary-400 animate-icon-bounce" />
+                                    <Building2 className="h-14 w-14 sm:h-20 sm:w-20 text-primary-400 animate-icon-bounce" />
                                 </span>{" "}
-                                visually
+                                community
                             </span>
                         </h1>
                         <p className="text-lg sm:text-xl lg:text-2xl text-gray-400 max-w-3xl mx-auto mb-12 font-light leading-relaxed" data-animate>
@@ -274,26 +274,26 @@ export default function LandingPage() {
                     </div>
                 </section>
 
-                {/* ═══════════════════ BUILD UI VISUALLY — Animated Demo ═══════════════════ */}
+                {/* ═══════════════════ EFFORTLESS MANAGEMENT — Animated Demo ═══════════════════ */}
                 <section className="py-32 relative z-10 border-t border-white/5 overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-b from-[#0B0F19] via-primary-950/10 to-[#0B0F19] pointer-events-none" />
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                         <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
                             {/* Text */}
                             <div data-animate="slide-left">
-                                <p className="text-primary-400 font-semibold text-sm uppercase tracking-[0.2em] mb-4">Build faster visually</p>
+                                <p className="text-primary-400 font-semibold text-sm uppercase tracking-[0.2em] mb-4">Complete Control</p>
                                 <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-white mb-6 leading-[1.1]">
-                                    Drag, drop &<br />
-                                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-primary-400">customize</span>
+                                    Manage everything,<br />
+                                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-primary-400">effortlessly</span>
                                 </h2>
                                 <p className="text-lg text-gray-400 mb-10 leading-relaxed max-w-lg">
-                                    Use 200+ pre-designed UI components. Drag widgets into your layout, style them in real‑time, and see changes instantly — no code required.
+                                    Oversee complaints, track visitor logs, and collect payments efficiently from one unified dashboard designed specifically for housing societies.
                                 </p>
                                 <div className="flex flex-wrap gap-4">
                                     {[
-                                        { icon: Layers, label: "200+ Widgets" },
-                                        { icon: Palette, label: "Live Preview" },
-                                        { icon: MousePointer2, label: "Drag & Drop" },
+                                        { icon: Users, label: "Resident Directory" },
+                                        { icon: Shield, label: "Secure Operations" },
+                                        { icon: MessageSquare, label: "Instant Resolution" },
                                     ].map((f) => (
                                         <div key={f.label} className="flex items-center gap-2 px-4 py-2.5 bg-white/5 border border-white/10 rounded-lg text-sm text-gray-300">
                                             <f.icon className="w-4 h-4 text-primary-400" />
@@ -308,17 +308,17 @@ export default function LandingPage() {
                                 <div className="relative bg-[#131A2A]/80 backdrop-blur-md rounded-2xl border border-white/10 p-6 aspect-square shadow-[0_0_40px_rgba(0,0,0,0.4)] overflow-hidden">
                                     <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-cyan-500/5 pointer-events-none" />
 
-                                    {/* Widget Panel sliding in */}
+                                    {/* Action Panel sliding in */}
                                     <div className="absolute top-6 left-6 bg-[#0B0F19] border border-white/10 rounded-xl p-4 w-48 shadow-xl" style={{ animation: 'widget-slide-in 6s ease-in-out infinite' }}>
                                         <div className="flex items-center justify-between mb-4">
                                             <span className="text-xs font-heading font-semibold text-white flex items-center gap-2">
-                                                <Layout className="w-3.5 h-3.5 text-primary-400" />
-                                                Add Widgets
+                                                <Layers className="w-3.5 h-3.5 text-primary-400" />
+                                                Quick Actions
                                             </span>
                                             <span className="text-gray-500 text-xs">×</span>
                                         </div>
                                         <div className="grid grid-cols-4 gap-2">
-                                            {[Code2, Layers, Database, Eye, CreditCard, Users, Bell, Calendar].map((Icon, i) => (
+                                            {[MessageSquare, CreditCard, Users, Shield, Building2, Bell, Calendar, Activity].map((Icon, i) => (
                                                 <div key={i} className="w-9 h-9 rounded-lg bg-white/5 border border-white/5 flex items-center justify-center text-gray-400 hover:text-primary-400 hover:bg-primary-500/10 transition-all cursor-pointer">
                                                     <Icon className="w-4 h-4" />
                                                 </div>
@@ -331,20 +331,20 @@ export default function LandingPage() {
                                         <MousePointer2 className="w-6 h-6 text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.5)]" />
                                     </div>
 
-                                    {/* Properties Panel sliding in from right */}
+                                    {/* Stats Panel sliding in from right */}
                                     <div className="absolute bottom-6 right-6 bg-[#0B0F19] border border-white/10 rounded-xl p-4 w-52 shadow-xl" style={{ animation: 'panel-slide 8s ease-in-out infinite 2s' }}>
-                                        <span className="text-xs font-heading font-semibold text-white mb-3 block">Properties</span>
+                                        <span className="text-xs font-heading font-semibold text-white mb-3 block">Society Health</span>
                                         <div className="space-y-3">
                                             <div>
-                                                <span className="text-[10px] text-gray-500 uppercase tracking-wider">Border Radius</span>
+                                                <span className="text-[10px] text-gray-500 uppercase tracking-wider">Maintenance Dues</span>
                                                 <div className="h-2 mt-1 rounded-full bg-white/10 overflow-hidden">
                                                     <div className="h-full rounded-full bg-gradient-to-r from-primary-500 to-cyan-500" style={{ animation: 'progress-fill 4s ease-in-out infinite' }} />
                                                 </div>
                                             </div>
                                             <div>
-                                                <span className="text-[10px] text-gray-500 uppercase tracking-wider">Opacity</span>
+                                                <span className="text-[10px] text-gray-500 uppercase tracking-wider">Occupancy Rate</span>
                                                 <div className="h-2 mt-1 rounded-full bg-white/10 overflow-hidden">
-                                                    <div className="h-full rounded-full bg-gradient-to-r from-cyan-500 to-indigo-500" style={{ width: '75%' }} />
+                                                    <div className="h-full rounded-full bg-gradient-to-r from-cyan-500 to-indigo-500" style={{ width: '92%' }} />
                                                 </div>
                                             </div>
                                             <div className="flex gap-2">
@@ -369,7 +369,7 @@ export default function LandingPage() {
                     </div>
                 </section>
 
-                {/* ═══════════════════ MANAGE EVERYTHING — Animated Demo ═══════════════════ */}
+                {/* ═══════════════════ AUTOMATE WORKFLOWS — Animated Demo ═══════════════════ */}
                 <section className="py-32 relative z-10 border-t border-white/5 overflow-hidden">
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                         <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
@@ -381,9 +381,9 @@ export default function LandingPage() {
                                     {/* Conditional Action Flow */}
                                     <div className="absolute top-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4" style={{ animation: 'widget-slide-in 8s ease-in-out infinite' }}>
                                         <div className="bg-[#0B0F19] border border-white/10 rounded-xl px-5 py-3 shadow-xl">
-                                            <span className="text-[10px] text-gray-500">Conditional Action 1</span>
+                                            <span className="text-[10px] text-gray-500">Scheduled Trigger</span>
                                             <div className="flex items-center gap-2 mt-1">
-                                                <span className="text-xs text-white font-medium font-mono">statusInfo == &apos;approved&apos;</span>
+                                                <span className="text-xs text-white font-medium font-mono">dueDate {`<`} today</span>
                                                 <span className="text-gray-600">⋮</span>
                                             </div>
                                         </div>
@@ -392,14 +392,14 @@ export default function LandingPage() {
                                                 <div className="w-16 h-8 bg-green-500/20 border border-green-500/30 rounded-lg flex items-center justify-center text-green-400 text-xs font-bold">TRUE</div>
                                                 <div className="w-px h-8 bg-white/10" />
                                                 <div className="bg-[#0B0F19] border border-white/10 rounded-lg px-3 py-2 text-[10px] text-gray-400">
-                                                    Action 1<br /><span className="text-primary-400">→ SendEmail()</span>
+                                                    Action 1<br /><span className="text-primary-400">→ SendReminder()</span>
                                                 </div>
                                             </div>
                                             <div className="flex flex-col items-center gap-2">
-                                                <div className="w-16 h-8 bg-red-500/20 border border-red-500/30 rounded-lg flex items-center justify-center text-red-400 text-xs font-bold">FALSE</div>
+                                                <div className="w-16 h-8 bg-gray-500/20 border border-gray-500/30 rounded-lg flex items-center justify-center text-gray-400 text-xs font-bold">FALSE</div>
                                                 <div className="w-px h-8 bg-white/10" />
-                                                <div className="bg-[#0B0F19] border border-cyan-500/20 rounded-lg px-3 py-2 text-[10px] text-gray-400">
-                                                    <span className="text-cyan-400 font-medium">CreateApproval</span><br />Backend Call ↓
+                                                <div className="bg-[#0B0F19] border border-white/10 rounded-lg px-3 py-2 text-[10px] text-gray-400">
+                                                    <span className="text-gray-500 font-medium">No Action</span><br />Stop Flow ↓
                                                 </div>
                                             </div>
                                         </div>
@@ -425,19 +425,19 @@ export default function LandingPage() {
 
                             {/* Text */}
                             <div data-animate="slide-right" className="order-1 lg:order-2">
-                                <p className="text-cyan-400 font-semibold text-sm uppercase tracking-[0.2em] mb-4">Add logic visually</p>
+                                <p className="text-cyan-400 font-semibold text-sm uppercase tracking-[0.2em] mb-4">Smart Automation</p>
                                 <h2 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-white mb-6 leading-[1.1]">
-                                    Add logic with our<br />
-                                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-cyan-400">Action Flow Editor</span>
+                                    Automate your<br />
+                                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-cyan-400">daily workflows</span>
                                 </h2>
                                 <p className="text-lg text-gray-400 mb-10 leading-relaxed max-w-lg">
-                                    Build complex business logic without writing code. Use conditional actions, API calls, and real-time triggers — all in a visual flow editor.
+                                    Set up customized approval chains for facility bookings, broadcast emergency alerts, and automatically send payment reminders without manual effort.
                                 </p>
                                 <div className="flex flex-wrap gap-4">
                                     {[
-                                        { icon: GitBranch, label: "Conditional Logic" },
-                                        { icon: Database, label: "API Integration" },
-                                        { icon: Zap, label: "Real-time Triggers" },
+                                        { icon: Zap, label: "Smart Triggers" },
+                                        { icon: MessageCircle, label: "Auto-Reminders" },
+                                        { icon: CheckCircle2, label: "Instant Approvals" },
                                     ].map((f) => (
                                         <div key={f.label} className="flex items-center gap-2 px-4 py-2.5 bg-white/5 border border-white/10 rounded-lg text-sm text-gray-300">
                                             <f.icon className="w-4 h-4 text-cyan-400" />
@@ -562,10 +562,10 @@ export default function LandingPage() {
 
                     <div className="max-w-4xl mx-auto px-4 text-center relative z-20" data-animate>
                         <h2 className="text-4xl sm:text-6xl font-heading font-bold text-white mb-6">
-                            Ready to Build?
+                            Ready to Upgrade?
                         </h2>
                         <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-                            Own your code. Build once and deploy your custom management platform everywhere.
+                            Join hundreds of premium housing societies modernizing their daily operations with FlatFlow.
                         </p>
                         <Link
                             href="/register"
