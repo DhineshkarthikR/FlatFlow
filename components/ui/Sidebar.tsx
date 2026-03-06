@@ -75,6 +75,7 @@ export default function Sidebar({ role, onLogout, isOpen, setIsOpen }: SidebarPr
                         <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">FlatFlow</span>
                     </Link>
                     <button
+                        aria-label="Close menu"
                         className="lg:hidden p-2 text-muted hover:bg-white/10 hover:text-white rounded-lg transition-colors"
                         onClick={() => setIsOpen(false)}
                     >

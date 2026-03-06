@@ -32,6 +32,7 @@ export default function Navbar({ userName, userRole, onLogout, onMenuClick }: Na
             <div className="flex items-center gap-3">
                 <button
                     onClick={onMenuClick}
+                    aria-label="Toggle menu"
                     className="lg:hidden p-2 -ml-2 text-muted hover:bg-white/5 hover:text-white rounded-lg transition-colors"
                 >
                     <Menu className="h-6 w-6" />
@@ -43,7 +44,7 @@ export default function Navbar({ userName, userRole, onLogout, onMenuClick }: Na
 
             <div className="flex items-center gap-4">
                 <Link href={userRole === "admin" ? "/admin/notices" : "/dashboard/notices"}>
-                    <button className="relative p-2 rounded-lg text-muted hover:bg-white/5 hover:text-white transition-colors">
+                    <button aria-label="Notifications" className="relative p-2 rounded-lg text-muted hover:bg-white/5 hover:text-white transition-colors">
                         <Bell className="h-5 w-5" />
                         <span className="absolute top-1.5 right-1.5 h-2 w-2 bg-primary-500 rounded-full shadow-[0_0_8px_rgba(99,102,241,0.8)]" />
                     </button>
@@ -52,6 +53,8 @@ export default function Navbar({ userName, userRole, onLogout, onMenuClick }: Na
                 <div className="relative" ref={dropdownRef}>
                     <button
                         onClick={() => setIsProfileOpen(!isProfileOpen)}
+                        aria-label="User profile dropdown"
+                        aria-expanded={isProfileOpen}
                         className="flex items-center gap-3 pl-4 border-l border-white/10 hover:bg-white/5 p-2 rounded-lg transition-colors"
                     >
                         <div className="h-8 w-8 bg-primary-600/20 border border-primary-500/30 rounded-full flex items-center justify-center">

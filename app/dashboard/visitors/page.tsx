@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import SectionIntro from "@/components/ui/SectionIntro";
+import dynamic from "next/dynamic";
+const SectionIntro = dynamic(() => import("@/components/ui/SectionIntro"), { ssr: false });
 import Table from "@/components/ui/Table";
 import EmptyState from "@/components/ui/EmptyState";
 import LoadingSkeleton from "@/components/ui/LoadingSkeleton";

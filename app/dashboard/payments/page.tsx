@@ -1,13 +1,15 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
+import Script from "next/script";
 import Button from "@/components/ui/Button";
 import Card, { CardHeader, CardTitle } from "@/components/ui/Card";
 import Table from "@/components/ui/Table";
 import { StatusBadge } from "@/components/ui/Badge";
 import StatsCard from "@/components/ui/StatsCard";
 import LoadingSkeleton from "@/components/ui/LoadingSkeleton";
-import CreditCardIntro from "@/components/ui/CreditCardIntro";
+import dynamic from "next/dynamic";
+const CreditCardIntro = dynamic(() => import("@/components/ui/CreditCardIntro"), { ssr: false });
 import { CreditCard, IndianRupee, CheckCircle2, Clock } from "lucide-react";
 
 declare global {
@@ -58,14 +60,6 @@ export default function PaymentsPage() {
 
     useEffect(() => {
         fetchPayments();
-        // Load Razorpay script
-        const script = document.createElement("script");
-        script.src = "https://checkout.razorpay.com/v1/checkout.js";
-        script.async = true;
-        document.body.appendChild(script);
-        return () => {
-            document.body.removeChild(script);
-        };
     }, []);
 
     async function fetchPayments() {
@@ -159,6 +153,9 @@ export default function PaymentsPage() {
 
     return (
         <>
+            {/* Razorpay Script */}
+            <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="lazyOnload" />
+
             {/* Credit Card 3D Intro Animation */}
             {showIntro && <CreditCardIntro onComplete={handleIntroComplete} />}
 

@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import SectionIntro from "@/components/ui/SectionIntro";
+import dynamic from "next/dynamic";
+const SectionIntro = dynamic(() => import("@/components/ui/SectionIntro"), { ssr: false });
 import Button from "@/components/ui/Button";
 import Modal from "@/components/ui/Modal";
 import Input from "@/components/ui/Input";
