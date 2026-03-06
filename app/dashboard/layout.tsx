@@ -59,7 +59,7 @@ export default function DashboardLayout({
     return (
         <div className="min-h-screen bg-surface">
             <Sidebar role="resident" onLogout={handleLogout} />
-            <Navbar userName={user.name} userRole={user.role} />
+            <Navbar userName={user.name} userRole={user.role} onLogout={handleLogout} />
             <main className="ml-64 mt-16 p-6">{children}</main>
         </div>
     );
