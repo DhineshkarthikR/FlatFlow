@@ -13,6 +13,7 @@ export default function RegisterPage() {
         name: "",
         email: "",
         password: "",
+        confirmPassword: "",
         flatNumber: "",
     });
     const [error, setError] = useState("");
@@ -31,13 +32,20 @@ export default function RegisterPage() {
             return;
         }
 
+        if (form.password !== form.confirmPassword) {
+            setError("Passwords do not match");
+            return;
+        }
+
         setLoading(true);
 
         try {
+            // Exclude confirmPassword from the API request payload
+            const { confirmPassword, ...registerData } = form;
             const res = await fetch("/api/auth/register", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(form),
+                body: JSON.stringify(registerData),
             });
 
             const data = await res.json();
@@ -62,12 +70,12 @@ export default function RegisterPage() {
                 <div className="max-w-md">
                     <div className="flex items-center gap-2 mb-8">
                         <Building2 className="h-8 w-8 text-white" />
-                        <span className="text-2xl font-bold text-white">FlatFlow</span>
+                        <span className="text-xl font-bold text-white">FlatFlow</span>
                     </div>
-                    <h2 className="text-3xl font-bold text-white mb-4">
+                    <h2 className="text-4xl font-bold text-white mb-6">
                         Join your society on FlatFlow
                     </h2>
-                    <p className="text-gray-400 leading-relaxed">
+                    <p className="text-gray-400 text-lg leading-relaxed">
                         Create your account to start managing complaints, making payments,
                         and staying connected with your housing community.
                     </p>
@@ -75,9 +83,9 @@ export default function RegisterPage() {
             </div>
 
             {/* Right panel */}
-            <div className="flex-1 flex items-center justify-center p-8">
+            <div className="flex-1 flex items-center justify-center p-8 overflow-y-auto">
                 <div className="w-full max-w-md">
-                    <div className="lg:hidden flex items-center gap-2 mb-8">
+                    <div className="lg:hidden flex items-center gap-2 mb-8 mt-8">
                         <Building2 className="h-7 w-7 text-primary-600" />
                         <span className="text-xl font-bold text-heading">FlatFlow</span>
                     </div>
@@ -130,11 +138,20 @@ export default function RegisterPage() {
                             onChange={handleChange}
                             required
                         />
+                        <Input
+                            label="Confirm Password"
+                            name="confirmPassword"
+                            type="password"
+                            placeholder="••••••••"
+                            value={form.confirmPassword}
+                            onChange={handleChange}
+                            required
+                        />
 
                         <Button
                             type="submit"
                             loading={loading}
-                            className="w-full"
+                            className="w-full mt-2"
                             size="lg"
                         >
                             Create Account
