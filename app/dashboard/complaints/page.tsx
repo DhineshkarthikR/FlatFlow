@@ -10,7 +10,7 @@ import { StatusBadge } from "@/components/ui/Badge";
 import EmptyState from "@/components/ui/EmptyState";
 import LoadingSkeleton from "@/components/ui/LoadingSkeleton";
 import { Plus, MessageSquare, Image as ImageIcon, Check } from "lucide-react";
-import { UploadButton } from "@/lib/uploadthing";
+import { UploadDropzone } from "@/lib/uploadthing";
 
 interface Complaint {
     _id: string;
@@ -128,21 +128,23 @@ export default function ComplaintsPage() {
                         <label className="block text-sm font-medium text-heading">
                             Attach Photo / Proof (optional)
                         </label>
-                        <div className="flex items-center gap-4 p-4 border border-dashed border-gray-300 rounded-lg bg-gray-50/50">
+                        <div className="w-full">
                             {form.imageUrl ? (
-                                <div className="flex items-center gap-2 text-green-600 font-medium text-sm">
-                                    <Check className="h-4 w-4" />
-                                    Image Uploaded
+                                <div className="flex items-center justify-between p-4 border border-gray-200 rounded-lg bg-gray-50/50">
+                                    <div className="flex items-center gap-2 text-green-600 font-medium text-sm">
+                                        <Check className="h-5 w-5" />
+                                        <span>Image successfully uploaded</span>
+                                    </div>
                                     <button
                                         type="button"
                                         onClick={() => setForm({ ...form, imageUrl: "" })}
-                                        className="text-xs text-red-600 hover:underline ml-2"
+                                        className="text-sm font-medium text-red-600 hover:text-red-700 transition-colors"
                                     >
                                         Remove
                                     </button>
                                 </div>
                             ) : (
-                                <UploadButton
+                                <UploadDropzone
                                     endpoint="complaintImage"
                                     onClientUploadComplete={(res) => {
                                         if (res?.[0]) {
@@ -153,8 +155,11 @@ export default function ComplaintsPage() {
                                         alert(`ERROR! ${error.message}`);
                                     }}
                                     appearance={{
-                                        button: "bg-primary-600 after:bg-primary-700 text-sm h-9 px-4",
-                                        allowedContent: "text-xs text-muted",
+                                        container: "w-full border-2 border-dashed border-gray-300 hover:border-primary-500 bg-gray-50/50 transition-colors duration-200 rounded-xl p-8 cursor-pointer flex flex-col items-center justify-center gap-2",
+                                        label: "text-sm text-heading hover:text-primary-600 font-medium",
+                                        allowedContent: "text-xs text-muted mt-1",
+                                        button: "bg-primary-600 text-white hover:bg-primary-700 rounded-md text-sm px-4 py-2 mt-4 ut-uploading:bg-primary-400 ut-uploading:cursor-not-allowed",
+                                        uploadIcon: "text-gray-400 w-10 h-10 mb-2",
                                     }}
                                 />
                             )}
