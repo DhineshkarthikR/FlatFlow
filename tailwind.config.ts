@@ -16,25 +16,27 @@ const config: Config = {
                     300: "#a5b4fc",
                     400: "#818cf8",
                     500: "#6366f1",
-                    600: "#4f46e5", // Vibrant Indigo/Blue
+                    600: "#4f46e5",
                     700: "#4338ca",
                     800: "#3730a3",
                     900: "#312e81",
                 },
                 accent: {
-                    500: "#06b6d4", // Cyan for highlights
+                    500: "#06b6d4",
                     600: "#0891b2",
                 },
-                background: "#0B0F19", // Deep dark background
-                surface: "#131A2A",   // slightly lighter for cards
+                background: "#0B0F19",
+                surface: "#131A2A",
                 surfaceHover: "#1E293B",
                 heading: "#FFFFFF",
-                body: "#94A3B8",      // slate-400
-                muted: "#64748B",     // slate-500
-                border: "#1E293B",    // slate-800
+                body: "#94A3B8",
+                muted: "#64748B",
+                border: "#1E293B",
             },
             fontFamily: {
-                sans: ["Inter", "system-ui", "sans-serif"],
+                sans: ["Plus Jakarta Sans", "Inter", "system-ui", "sans-serif"],
+                heading: ["Outfit", "Inter", "system-ui", "sans-serif"],
+                body: ["Plus Jakarta Sans", "Inter", "system-ui", "sans-serif"],
             },
             backgroundImage: {
                 'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -60,7 +62,15 @@ const config: Config = {
                 "pulse-glow": {
                     "0%, 100%": { opacity: "0.5" },
                     "50%": { opacity: "1" },
-                }
+                },
+                "icon-bounce": {
+                    "0%, 100%": { transform: "translateY(0) scale(1)" },
+                    "50%": { transform: "translateY(-8px) scale(1.1)" },
+                },
+                "gradient": {
+                    "0%": { backgroundPosition: "0% 50%" },
+                    "100%": { backgroundPosition: "200% 50%" },
+                },
             },
             animation: {
                 "fade-in-up": "fade-in-up 0.5s ease-out forwards",
@@ -68,6 +78,7 @@ const config: Config = {
                 "fade-in": "fade-in 0.5s ease-out forwards",
                 "float": "float 3s ease-in-out infinite",
                 "pulse-glow": "pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+                "icon-bounce": "icon-bounce 2s ease-in-out infinite",
             },
         },
     },
@@ -75,3 +86,4 @@ const config: Config = {
 };
 
 export default config;
+
