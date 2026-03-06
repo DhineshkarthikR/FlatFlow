@@ -160,11 +160,11 @@ export default function ComplaintsPage() {
                                             alert(`ERROR! ${error.message}`);
                                         }}
                                         appearance={{
-                                            container: "w-full border-2 border-dashed border-gray-300 hover:border-primary-500 bg-gray-50/50 transition-colors duration-200 rounded-xl p-8 cursor-pointer flex flex-col items-center justify-center gap-2",
-                                            label: "text-sm text-heading hover:text-primary-600 font-medium",
-                                            allowedContent: "text-xs text-muted mt-1",
-                                            button: "bg-primary-600 text-white hover:bg-primary-700 rounded-md text-sm px-4 py-2 mt-4 ut-uploading:bg-primary-400 ut-uploading:cursor-not-allowed",
-                                            uploadIcon: "text-gray-400 w-10 h-10 mb-2",
+                                            container: "w-full border-2 border-dashed border-white/10 hover:border-primary-500/50 bg-white/5 transition-colors duration-200 rounded-xl p-8 cursor-pointer flex flex-col items-center justify-center gap-2",
+                                            label: "text-sm text-white hover:text-primary-400 font-medium",
+                                            allowedContent: "text-xs text-gray-400 mt-1",
+                                            button: "bg-primary-600 text-white hover:bg-primary-500 rounded-lg text-sm px-5 py-2.5 mt-4 transition-colors font-medium ut-uploading:bg-primary-400 ut-uploading:cursor-not-allowed",
+                                            uploadIcon: "text-white/50 w-10 h-10 mb-3",
                                         }}
                                     />
                                 )}
