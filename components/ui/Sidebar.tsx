@@ -53,7 +53,7 @@ export default function Sidebar({ role, onLogout }: SidebarProps) {
     return (
         <aside className="fixed left-0 top-0 h-full w-64 bg-white border-r border-gray-200 flex flex-col z-40">
             <div className="p-6 border-b border-gray-200">
-                <Link href="/" className="flex items-center gap-2">
+                <Link href={role === "admin" ? "/admin" : "/dashboard"} className="flex items-center gap-2">
                     <Building2 className="h-7 w-7 text-primary-600" />
                     <span className="text-xl font-bold text-heading">FlatFlow</span>
                 </Link>
@@ -72,8 +72,8 @@ export default function Sidebar({ role, onLogout }: SidebarProps) {
                             key={link.href}
                             href={link.href}
                             className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${isActive
-                                    ? "bg-primary-50 text-primary-700"
-                                    : "text-body hover:bg-gray-50"
+                                ? "bg-primary-50 text-primary-700"
+                                : "text-body hover:bg-gray-50"
                                 }`}
                         >
                             {link.icon}

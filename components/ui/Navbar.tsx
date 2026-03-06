@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { User, Bell } from "lucide-react";
 
 interface NavbarProps {
@@ -17,10 +18,12 @@ export default function Navbar({ userName, userRole }: NavbarProps) {
             </div>
 
             <div className="flex items-center gap-4">
-                <button className="relative p-2 rounded-lg text-muted hover:bg-gray-50 transition-colors">
-                    <Bell className="h-5 w-5" />
-                    <span className="absolute top-1.5 right-1.5 h-2 w-2 bg-primary-600 rounded-full" />
-                </button>
+                <Link href={userRole === "admin" ? "/admin/notices" : "/dashboard/notices"}>
+                    <button className="relative p-2 rounded-lg text-muted hover:bg-gray-50 transition-colors">
+                        <Bell className="h-5 w-5" />
+                        <span className="absolute top-1.5 right-1.5 h-2 w-2 bg-primary-600 rounded-full" />
+                    </button>
+                </Link>
 
                 <div className="flex items-center gap-3 pl-4 border-l border-gray-200">
                     <div className="h-8 w-8 bg-primary-100 rounded-full flex items-center justify-center">
