@@ -10,7 +10,8 @@ import {
     CheckCircle2,
     Zap,
     Users,
-    Activity
+    Activity,
+    IndianRupee
 } from "lucide-react";
 
 const features = [
@@ -129,28 +130,181 @@ export default function LandingPage() {
 
                     {/* Dashboard Preview Mockup */}
                     <div className="mt-20 lg:mt-32 relative mx-auto max-w-6xl animate-fade-in-up opacity-0" style={{ animationDelay: '900ms' }}>
-                        <div className="relative rounded-2xl border border-white/10 bg-[#131A2A]/80 backdrop-blur-2xl shadow-2xl p-2 sm:p-4 animate-float aspect-video overflow-hidden">
-                            <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-transparent pointer-events-none" />
-                            {/* Simplified mockup UI */}
-                            <div className="h-full w-full rounded-xl bg-[#0B0F19] border border-white/5 flex flex-col overflow-hidden relative">
-                                <div className="h-12 border-b border-white/10 flex items-center px-4 gap-2">
-                                    <div className="flex gap-1.5"><div className="w-3 h-3 rounded-full bg-red-500/80" /><div className="w-3 h-3 rounded-full bg-yellow-500/80" /><div className="w-3 h-3 rounded-full bg-green-500/80" /></div>
-                                    <div className="mx-auto bg-white/5 rounded-md h-6 w-1/3 border border-white/5" />
-                                </div>
-                                <div className="flex-1 p-6 grid grid-cols-4 gap-6">
-                                    <div className="col-span-1 space-y-4">
-                                        <div className="h-8 bg-white/5 rounded-lg w-3/4" />
-                                        <div className="h-4 bg-white/5 rounded-lg w-full" />
-                                        <div className="h-4 bg-white/5 rounded-lg w-5/6" />
-                                        <div className="h-4 bg-white/5 rounded-lg w-full" />
-                                        <div className="h-32 bg-primary-600/20 border border-primary-500/30 rounded-xl mt-8" />
+                        <div className="relative rounded-2xl border border-white/10 bg-[#131A2A]/60 backdrop-blur-2xl shadow-[0_0_50px_rgba(0,0,0,0.5)] p-2 sm:p-4 animate-float aspect-video overflow-hidden">
+                            <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 via-transparent to-cyan-500/5 pointer-events-none" />
+
+                            {/* Detailed mockup UI */}
+                            <div className="h-full w-full rounded-xl bg-[#0B0F19]/90 border border-white/10 flex flex-col overflow-hidden relative backdrop-blur-3xl shadow-2xl">
+                                {/* Browser/Window Header */}
+                                <div className="h-12 border-b border-white/10 flex items-center px-4 justify-between bg-white/5 relative z-10">
+                                    <div className="flex gap-2">
+                                        <div className="w-3.5 h-3.5 rounded-full bg-red-500/90 shadow-[0_0_10px_rgba(239,68,68,0.5)]" />
+                                        <div className="w-3.5 h-3.5 rounded-full bg-yellow-500/90 shadow-[0_0_10px_rgba(234,179,8,0.5)]" />
+                                        <div className="w-3.5 h-3.5 rounded-full bg-green-500/90 shadow-[0_0_10px_rgba(34,197,94,0.5)]" />
                                     </div>
-                                    <div className="col-span-3 grid grid-cols-3 gap-4">
-                                        <div className="h-32 bg-white/5 rounded-xl border border-white/5" />
-                                        <div className="h-32 bg-white/5 rounded-xl border border-white/5" />
-                                        <div className="h-32 bg-white/5 rounded-xl border border-white/5" />
-                                        <div className="col-span-2 h-64 bg-white/5 rounded-xl border border-white/5 mt-2" />
-                                        <div className="col-span-1 h-64 bg-white/5 rounded-xl border border-white/5 mt-2" />
+                                    <div className="absolute left-1/2 -translate-x-1/2 bg-black/40 rounded-md h-7 w-1/3 flex items-center justify-center border border-white/5">
+                                        <span className="text-[10px] text-gray-500 font-mono tracking-widest flex items-center gap-2">
+                                            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                                            admin.flatflow.io
+                                        </span>
+                                    </div>
+                                </div>
+
+                                {/* App Content */}
+                                <div className="flex-1 flex overflow-hidden">
+                                    {/* Sidebar */}
+                                    <div className="w-48 xl:w-56 border-r border-white/10 bg-white/[0.02] p-4 flex flex-col gap-2 relative z-10">
+                                        <div className="flex items-center gap-2 mb-6 px-2">
+                                            <div className="w-6 h-6 rounded bg-gradient-to-tr from-primary-600 to-cyan-500 flex items-center justify-center shadow-[0_0_10px_rgba(79,70,229,0.5)]">
+                                                <Building2 className="w-3.5 h-3.5 text-white" />
+                                            </div>
+                                            <span className="text-sm font-bold text-white">FlatFlow</span>
+                                        </div>
+
+                                        <div className="space-y-1">
+                                            <div className="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary-600/20 text-primary-400 border border-primary-500/30 shadow-[inset_0_0_10px_rgba(79,70,229,0.1)]">
+                                                <BarChart3 className="w-4 h-4" />
+                                                <span className="text-xs font-medium">Dashboard</span>
+                                            </div>
+                                            <div className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 opacity-80">
+                                                <MessageSquare className="w-4 h-4" />
+                                                <span className="text-xs font-medium">Complaints</span>
+                                            </div>
+                                            <div className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 opacity-80">
+                                                <CreditCard className="w-4 h-4" />
+                                                <span className="text-xs font-medium">Payments</span>
+                                            </div>
+                                            <div className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 opacity-80">
+                                                <Users className="w-4 h-4" />
+                                                <span className="text-xs font-medium">Residents</span>
+                                            </div>
+                                        </div>
+
+                                        <div className="mt-auto pt-4 border-t border-white/10">
+                                            <div className="flex items-center gap-2 px-2">
+                                                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 border border-white/20 p-0.5 flex items-center justify-center">
+                                                    <span className="text-[10px] font-bold text-white">DK</span>
+                                                </div>
+                                                <div className="flex flex-col">
+                                                    <span className="text-[10px] font-medium text-gray-200">Dhinesh K.</span>
+                                                    <span className="text-[9px] text-gray-500">Admin</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Main Content */}
+                                    <div className="flex-1 p-6 flex flex-col gap-6 relative overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary-900/10 via-[#0B0F19]/0 to-[#0B0F19]/0">
+                                        <div className="flex items-center justify-between">
+                                            <div>
+                                                <h3 className="text-lg font-bold text-white tracking-wide">Overview</h3>
+                                                <p className="text-xs text-gray-400">Welcome back, here's what's happening today.</p>
+                                            </div>
+                                            <div className="flex gap-2">
+                                                <div className="h-8 px-3 rounded-lg bg-white/5 border border-white/10 flex items-center gap-2 text-xs text-gray-300">
+                                                    <span>This Month</span>
+                                                    <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                                                </div>
+                                                <div className="h-8 px-4 rounded-lg bg-primary-600 text-white flex items-center text-xs font-medium shadow-[0_0_15px_rgba(79,70,229,0.4)]">
+                                                    Generate Report
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {/* Stats Row */}
+                                        <div className="grid grid-cols-3 gap-4">
+                                            <div className="bg-[#131A2A]/80 backdrop-blur-md rounded-xl border border-white/5 p-4 flex flex-col gap-2 relative overflow-hidden">
+                                                <div className="absolute top-0 right-0 w-16 h-16 bg-primary-500/10 blur-xl rounded-full translate-x-1/2 -translate-y-1/2" />
+                                                <div className="flex items-center justify-between">
+                                                    <span className="text-[11px] font-medium text-gray-400">Total Revenue</span>
+                                                    <div className="w-6 h-6 rounded-md bg-primary-500/20 text-primary-400 flex items-center justify-center border border-primary-500/20">
+                                                        <IndianRupee className="w-3 h-3" />
+                                                    </div>
+                                                </div>
+                                                <div className="flex items-end gap-2">
+                                                    <span className="text-2xl font-bold text-white">₹1.42M</span>
+                                                    <span className="text-[10px] text-green-400 mb-1 flex items-center">+12.5%</span>
+                                                </div>
+                                            </div>
+
+                                            <div className="bg-[#131A2A]/80 backdrop-blur-md rounded-xl border border-white/5 p-4 flex flex-col gap-2 relative overflow-hidden">
+                                                <div className="absolute top-0 right-0 w-16 h-16 bg-cyan-500/10 blur-xl rounded-full translate-x-1/2 -translate-y-1/2" />
+                                                <div className="flex items-center justify-between">
+                                                    <span className="text-[11px] font-medium text-gray-400">Active Complaints</span>
+                                                    <div className="w-6 h-6 rounded-md bg-cyan-500/20 text-cyan-400 flex items-center justify-center border border-cyan-500/20">
+                                                        <MessageSquare className="w-3 h-3" />
+                                                    </div>
+                                                </div>
+                                                <div className="flex items-end gap-2">
+                                                    <span className="text-2xl font-bold text-white">24</span>
+                                                    <span className="text-[10px] text-red-400 mb-1 flex items-center">+4 New</span>
+                                                </div>
+                                            </div>
+
+                                            <div className="bg-[#131A2A]/80 backdrop-blur-md rounded-xl border border-white/5 p-4 flex flex-col gap-2 relative overflow-hidden">
+                                                <div className="flex items-center justify-between">
+                                                    <span className="text-[11px] font-medium text-gray-400">Occupancy Rate</span>
+                                                    <div className="w-6 h-6 rounded-md bg-purple-500/20 text-purple-400 flex items-center justify-center border border-purple-500/20">
+                                                        <Building2 className="w-3 h-3" />
+                                                    </div>
+                                                </div>
+                                                <div className="flex items-end gap-2">
+                                                    <span className="text-2xl font-bold text-white">96%</span>
+                                                    <span className="text-[10px] text-green-400 mb-1 flex items-center">+1.2%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {/* Chart & Activity Row */}
+                                        <div className="flex-1 grid grid-cols-3 gap-4 min-h-0">
+                                            {/* Fake Chart */}
+                                            <div className="col-span-2 bg-[#131A2A]/80 backdrop-blur-md rounded-xl border border-white/5 p-4 flex flex-col relative overflow-hidden">
+                                                <div className="flex items-center justify-between mb-4">
+                                                    <span className="text-[11px] font-medium text-gray-300">Revenue Trend</span>
+                                                    <span className="text-[10px] text-primary-400 bg-primary-500/10 px-2 py-0.5 rounded border border-primary-500/20">Detailed View</span>
+                                                </div>
+                                                <div className="flex-1 relative flex items-end gap-2 pb-2">
+                                                    {/* Fake bar chart columns */}
+                                                    {[40, 65, 45, 80, 55, 90, 75, 100, 85].map((height, i) => (
+                                                        <div key={i} className="flex-1 flex flex-col justify-end gap-2 group">
+                                                            <div
+                                                                className={`w-full rounded-sm transition-all duration-500 ${i === 7 ? 'bg-primary-500 shadow-[0_0_10px_rgba(79,70,229,0.5)]' : 'bg-primary-500/20 group-hover:bg-primary-500/40 border border-primary-500/10'}`}
+                                                                style={{ height: `${height}%` }}
+                                                            />
+                                                            <div className="text-[8px] text-gray-600 text-center uppercase">
+                                                                {['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'][i]}
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+
+                                            {/* Recent Activity */}
+                                            <div className="col-span-1 bg-[#131A2A]/80 backdrop-blur-md rounded-xl border border-white/5 p-4 flex flex-col">
+                                                <span className="text-[11px] font-medium text-gray-300 mb-4">Recent Activity</span>
+                                                <div className="flex-1 space-y-3 overflow-hidden">
+                                                    {[
+                                                        { action: "Payment Received", sub: "Apt 4B - Maintenance", amt: "+₹4,500", color: "text-green-400", bg: "bg-green-500/10 border-green-500/20" },
+                                                        { action: "Complaint Fixed", sub: "Lift 2 Malfunction", amt: "Resolved", color: "text-cyan-400", bg: "bg-cyan-500/10 border-cyan-500/20" },
+                                                        { action: "Visitor Alert", sub: "Delivery for 7A", amt: "09:42 AM", color: "text-gray-400", bg: "bg-white/5 border-white/10" },
+                                                        { action: "Payment Received", sub: "Apt 1C - Maintenance", amt: "+₹4,500", color: "text-green-400", bg: "bg-green-500/10 border-green-500/20" },
+                                                    ].map((item, i) => (
+                                                        <div key={i} className="flex items-center justify-between pb-3 border-b border-white/5 last:border-0 last:pb-0">
+                                                            <div className="flex items-center gap-2">
+                                                                <div className={`w-8 h-8 rounded-full flex items-center justify-center border ${item.bg}`}>
+                                                                    <div className={`w-1.5 h-1.5 rounded-full ${item.color.replace('text-', 'bg-')}`} />
+                                                                </div>
+                                                                <div className="flex flex-col">
+                                                                    <span className="text-[10px] text-gray-300">{item.action}</span>
+                                                                    <span className="text-[9px] text-gray-500">{item.sub}</span>
+                                                                </div>
+                                                            </div>
+                                                            <span className={`text-[10px] font-medium ${item.color}`}>{item.amt}</span>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
