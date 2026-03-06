@@ -28,6 +28,10 @@ export async function PUT(request: NextRequest) {
             return apiResponse(false, "User not found", null, 404);
         }
 
+        if (!user.password) {
+            return apiResponse(false, "This account uses Google Sign-In and has no password set", null, 400);
+        }
+
         const isMatch = await bcrypt.compare(currentPassword, user.password);
         if (!isMatch) {
             return apiResponse(false, "Incorrect current password", null, 400);

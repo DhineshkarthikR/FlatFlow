@@ -20,6 +20,10 @@ export async function POST(request: NextRequest) {
             return apiResponse(false, "Invalid email or password", null, 401);
         }
 
+        if (!user.password) {
+            return apiResponse(false, "This account uses Google Sign-In. Please sign in with Google.", null, 401);
+        }
+
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
             return apiResponse(false, "Invalid email or password", null, 401);
