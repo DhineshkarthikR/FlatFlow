@@ -5,7 +5,7 @@ export async function POST() {
     const res = new Response(response.body, response);
     res.headers.append(
         "Set-Cookie",
-        `flatflow_token=; HttpOnly; Path=/; Max-Age=0; SameSite=Lax`
+        `flatflow_token=; HttpOnly; Secure; Path=/; Max-Age=0; SameSite=Lax`
     );
     return res;
 }
