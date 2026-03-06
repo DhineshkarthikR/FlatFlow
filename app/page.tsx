@@ -176,8 +176,8 @@ export default function LandingPage() {
                                                 </div>
                                                 <span className="text-sm font-heading font-bold text-white">FlatFlow</span>
                                             </div>
-                                            <div className="space-y-1">
-                                                <div className="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary-600/20 text-primary-400 border border-primary-500/30 shadow-[inset_0_0_10px_rgba(79,70,229,0.1)]">
+                                            <div className="space-y-1 relative">
+                                                <div className="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary-600/20 text-primary-400 border border-primary-500/30 shadow-[inset_0_0_10px_rgba(79,70,229,0.1)] transition-colors" style={{ animation: 'nav-highlight 8s ease-in-out infinite' }}>
                                                     <BarChart3 className="w-4 h-4" />
                                                     <span className="text-xs font-medium">Dashboard</span>
                                                 </div>
@@ -207,7 +207,7 @@ export default function LandingPage() {
                                                 <div><h3 className="text-lg font-heading font-bold text-white tracking-wide">Overview</h3><p className="text-xs text-gray-400">Welcome back, here&apos;s what&apos;s happening today.</p></div>
                                                 <div className="flex gap-2">
                                                     <div className="h-8 px-3 rounded-lg bg-white/5 border border-white/10 flex items-center gap-2 text-xs text-gray-300"><span>This Month</span><svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg></div>
-                                                    <div className="h-8 px-4 rounded-lg bg-primary-600 text-white flex items-center text-xs font-medium shadow-[0_0_15px_rgba(79,70,229,0.4)]">Generate Report</div>
+                                                    <div className="h-8 px-4 rounded-lg bg-primary-600 text-white flex items-center text-xs font-medium shadow-[0_0_15px_rgba(79,70,229,0.4)] transition-transform" style={{ animation: 'button-press 8s ease-in-out infinite 2s' }}>Generate Report</div>
                                                 </div>
                                             </div>
                                             {/* Stats */}
@@ -240,7 +240,7 @@ export default function LandingPage() {
                                                     <div className="flex-1 relative flex items-end gap-2 pb-2">
                                                         {[40, 65, 45, 80, 55, 90, 75, 100, 85].map((h, i) => (
                                                             <div key={i} className="flex-1 flex flex-col justify-end gap-2 group">
-                                                                <div className={`w-full rounded-sm transition-all duration-500 ${i === 7 ? 'bg-primary-500 shadow-[0_0_10px_rgba(79,70,229,0.5)]' : 'bg-primary-500/20 group-hover:bg-primary-500/40 border border-primary-500/10'}`} style={{ height: `${h}%` }} />
+                                                                <div className={`w-full rounded-sm transition-all duration-500 ${i === 7 ? 'bg-primary-500 shadow-[0_0_10px_rgba(79,70,229,0.5)]' : 'bg-primary-500/20 border border-primary-500/10'}`} style={{ '--target-height': `${h}%`, animation: `bar-grow 8s ease-in-out infinite ${i * 0.1}s` } as React.CSSProperties} />
                                                                 <div className="text-[8px] text-gray-600 text-center uppercase">{['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'][i]}</div>
                                                             </div>
                                                         ))}
@@ -255,7 +255,7 @@ export default function LandingPage() {
                                                             { action: "Visitor Alert", sub: "7A", amt: "09:42 AM", color: "text-gray-400", bg: "bg-white/5 border-white/10" },
                                                             { action: "Payment", sub: "Apt 1C", amt: "+₹4,500", color: "text-green-400", bg: "bg-green-500/10 border-green-500/20" },
                                                         ].map((item, i) => (
-                                                            <div key={i} className="flex items-center justify-between pb-3 border-b border-white/5 last:border-0 last:pb-0">
+                                                            <div key={i} className="flex items-center justify-between pb-3 border-b border-white/5 last:border-0 last:pb-0 opacity-0" style={{ animation: `feed-slide-in 8s ease-in-out infinite ${i * 1.5 + 3}s` }}>
                                                                 <div className="flex items-center gap-2">
                                                                     <div className={`w-8 h-8 rounded-full flex items-center justify-center border ${item.bg}`}><div className={`w-1.5 h-1.5 rounded-full ${item.color.replace('text-', 'bg-')}`} /></div>
                                                                     <div className="flex flex-col"><span className="text-[10px] text-gray-300">{item.action}</span><span className="text-[9px] text-gray-500">{item.sub}</span></div>
@@ -265,6 +265,11 @@ export default function LandingPage() {
                                                         ))}
                                                     </div>
                                                 </div>
+                                            </div>
+
+                                            {/* Fake Cursor for Demo */}
+                                            <div className="absolute top-0 left-0 pointer-events-none z-50 text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]" style={{ animation: 'cursor-demo 8s ease-in-out infinite' }}>
+                                                <MousePointer2 className="w-5 h-5 fill-white" />
                                             </div>
                                         </div>
                                     </div>

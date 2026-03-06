@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import Button from "@/components/ui/Button";
 import Card, { CardHeader, CardTitle } from "@/components/ui/Card";
 import Table from "@/components/ui/Table";
 import { StatusBadge } from "@/components/ui/Badge";
 import StatsCard from "@/components/ui/StatsCard";
 import LoadingSkeleton from "@/components/ui/LoadingSkeleton";
+import CreditCardIntro from "@/components/ui/CreditCardIntro";
 import { CreditCard, IndianRupee, CheckCircle2, Clock } from "lucide-react";
 
 declare global {
@@ -49,6 +50,11 @@ export default function PaymentsPage() {
     const [payments, setPayments] = useState<Payment[]>([]);
     const [loading, setLoading] = useState(true);
     const [paying, setPaying] = useState(false);
+    const [showIntro, setShowIntro] = useState(true);
+
+    const handleIntroComplete = useCallback(() => {
+        setShowIntro(false);
+    }, []);
 
     useEffect(() => {
         fetchPayments();
@@ -152,44 +158,50 @@ export default function PaymentsPage() {
     ];
 
     return (
-        <div className="space-y-6">
-            <div className="flex items-center justify-between">
-                <h1 className="text-2xl font-bold text-heading">Payments</h1>
-                <Button onClick={handlePayment} loading={paying}>
-                    <IndianRupee className="h-4 w-4 mr-2" />
-                    Pay Maintenance (₹5,000)
-                </Button>
-            </div>
+        <>
+            {/* Credit Card 3D Intro Animation */}
+            {showIntro && <CreditCardIntro onComplete={handleIntroComplete} />}
 
-            {/* Stats */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <StatsCard
-                    title="Total Paid"
-                    value={`₹${totalPaid.toLocaleString()}`}
-                    icon={IndianRupee}
-                />
-                <StatsCard
-                    title="Payments Made"
-                    value={completedPayments.length}
-                    icon={CheckCircle2}
-                />
-                <StatsCard
-                    title="Pending"
-                    value={payments.filter((p) => p.status === "pending").length}
-                    icon={Clock}
-                />
-            </div>
+            {/* Dashboard Content */}
+            <div className={`space-y-6 transition-all duration-700 ${showIntro ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}>
+                <div className="flex items-center justify-between">
+                    <h1 className="text-2xl font-bold text-heading">Payments</h1>
+                    <Button onClick={handlePayment} loading={paying}>
+                        <IndianRupee className="h-4 w-4 mr-2" />
+                        Pay Maintenance (₹5,000)
+                    </Button>
+                </div>
 
-            <Card>
-                <CardHeader>
-                    <CardTitle>Payment History</CardTitle>
-                </CardHeader>
-                {loading ? (
-                    <LoadingSkeleton rows={5} />
-                ) : (
-                    <Table columns={columns} data={payments} emptyMessage="No payments yet" />
-                )}
-            </Card>
-        </div>
+                {/* Stats */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <StatsCard
+                        title="Total Paid"
+                        value={`₹${totalPaid.toLocaleString()}`}
+                        icon={IndianRupee}
+                    />
+                    <StatsCard
+                        title="Payments Made"
+                        value={completedPayments.length}
+                        icon={CheckCircle2}
+                    />
+                    <StatsCard
+                        title="Pending"
+                        value={payments.filter((p) => p.status === "pending").length}
+                        icon={Clock}
+                    />
+                </div>
+
+                <Card>
+                    <CardHeader>
+                        <CardTitle>Payment History</CardTitle>
+                    </CardHeader>
+                    {loading ? (
+                        <LoadingSkeleton rows={5} />
+                    ) : (
+                        <Table columns={columns} data={payments} emptyMessage="No payments yet" />
+                    )}
+                </Card>
+            </div>
+        </>
     );
 }
