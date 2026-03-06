@@ -2,10 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "@/lib/db";
 import { signToken } from "@/lib/jwt";
 import User from "@/models/User";
+import { getBaseUrl } from "@/lib/url";
 
 export async function GET(request: NextRequest) {
     const code = request.nextUrl.searchParams.get("code");
-    const baseUrl = request.nextUrl.origin;
+    const baseUrl = getBaseUrl(request);
     const redirectUri = `${baseUrl}/api/auth/google/callback`;
 
     if (!code) {

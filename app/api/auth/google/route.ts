@@ -1,9 +1,10 @@
 import { NextRequest } from "next/server";
 import { redirect } from "next/navigation";
+import { getBaseUrl } from "@/lib/url";
 
 export async function GET(request: NextRequest) {
     const clientId = process.env.GOOGLE_CLIENT_ID;
-    const baseUrl = request.nextUrl.origin;
+    const baseUrl = getBaseUrl(request);
     const redirectUri = `${baseUrl}/api/auth/google/callback`;
 
     const params = new URLSearchParams({
