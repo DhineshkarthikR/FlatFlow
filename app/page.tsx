@@ -118,16 +118,16 @@ export default function LandingPage() {
                             </span>
                             <span className="uppercase tracking-[0.2em] text-xs">Rethink Society Management</span>
                         </div>
-                        <h1 className="text-5xl sm:text-7xl lg:text-8xl font-heading font-extrabold text-white leading-[1.05] mb-8 max-w-5xl mx-auto tracking-tight" data-animate>
+                        <h1 className="text-5xl sm:text-7xl lg:text-8xl font-heading font-extrabold text-white leading-[1.05] mb-8 max-w-5xl mx-auto tracking-tight" data-animate="slide-right">
                             Modernize your<br />
-                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-400 via-cyan-400 to-indigo-400 drop-shadow-[0_0_30px_rgba(79,70,229,0.3)]">
+                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-indigo-500 drop-shadow-[0_0_30px_rgba(79,70,229,0.3)]">
                                 <span className="inline-flex items-center gap-3">
-                                    <Building2 className="h-14 w-14 sm:h-20 sm:w-20 text-primary-400 animate-icon-bounce" />
+                                    <Building2 className="h-14 w-14 sm:h-20 sm:w-20 text-cyan-400 animate-[bounce_3s_ease-in-out_infinite]" />
                                 </span>{" "}
                                 community
                             </span>
                         </h1>
-                        <p className="text-lg sm:text-xl lg:text-2xl text-gray-400 max-w-3xl mx-auto mb-12 font-light leading-relaxed" data-animate>
+                        <p className="text-lg sm:text-xl lg:text-2xl text-gray-400 max-w-3xl mx-auto mb-12 font-light leading-relaxed" data-animate="slide-right">
                             Streamline your housing society operations visually.
                             From complaints and payments to visitor logs — build an intuitive experience for your community.
                         </p>
@@ -460,8 +460,21 @@ export default function LandingPage() {
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                         <div className="text-center mb-20" data-animate>
                             <h2 className="text-base text-primary-400 font-semibold tracking-[0.2em] uppercase mb-3">Everything you need</h2>
-                            <h3 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-white mb-6">
-                                Everything. Fully Customizable.
+                            <h3 className="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-white mb-6 flex flex-col md:flex-row items-center justify-center gap-3 md:gap-5">
+                                <span>Everything.</span>
+                                {/* Animated EQ Icon mimicking reference image 4 */}
+                                <div className="flex items-center gap-2 h-14 text-primary-500 my-2 md:my-0">
+                                    <div className="w-1 bg-current rounded-full relative" style={{ height: '24px', animation: 'eq-1 1.2s ease-in-out infinite' }}>
+                                        <div className="absolute w-[14px] h-[14px] border-[2px] border-current rounded-full bg-[#0B0F19] -left-[5px] top-1/2 -translate-y-1/2" />
+                                    </div>
+                                    <div className="w-1 bg-current rounded-full relative" style={{ height: '40px', animation: 'eq-2 1.5s ease-in-out infinite' }}>
+                                        <div className="absolute w-[14px] h-[14px] border-[2px] border-current rounded-full bg-[#0B0F19] -left-[5px] top-1/4 -translate-y-1/2" />
+                                    </div>
+                                    <div className="w-1 bg-current rounded-full relative" style={{ height: '32px', animation: 'eq-3 1.8s ease-in-out infinite' }}>
+                                        <div className="absolute w-[14px] h-[14px] border-[2px] border-current rounded-full bg-[#0B0F19] -left-[5px] bottom-1" />
+                                    </div>
+                                </div>
+                                <span>Fully Customizable.</span>
                             </h3>
                             <p className="text-xl text-gray-400 max-w-2xl mx-auto">
                                 A complete suite of tools designed to accelerate modern housing society management without sacrificing quality.
@@ -491,8 +504,8 @@ export default function LandingPage() {
                 {/* ═══════════════════ TESTIMONIALS MARQUEE ═══════════════════ */}
                 <section className="py-24 relative z-10 border-t border-white/5 bg-[#080B13] overflow-hidden">
                     <div className="text-center mb-16 px-4" data-animate>
-                        <h2 className="text-base text-primary-400 font-semibold tracking-[0.2em] uppercase mb-3">Loved by communities</h2>
-                        <h3 className="text-4xl sm:text-5xl font-heading font-bold text-white">
+                        <h2 className="text-sm text-indigo-400 font-bold tracking-[0.2em] uppercase mb-4 shadow-indigo-500/20 drop-shadow-md">Loved by communities</h2>
+                        <h3 className="text-4xl sm:text-5xl font-heading font-bold text-white tracking-tight">
                             Trusted by 500+ Societies
                         </h3>
                     </div>
@@ -607,28 +620,28 @@ export default function LandingPage() {
                                 <h3 className="text-sm font-heading font-semibold text-white uppercase tracking-wider mb-5">Product</h3>
                                 <ul className="space-y-4">
                                     <li><Link href="#features" className="text-base text-gray-400 hover:text-primary-400 transition-colors">Features</Link></li>
-                                    <li><Link href="#" className="text-base text-gray-400 hover:text-primary-400 transition-colors">Integrations</Link></li>
-                                    <li><Link href="#" className="text-base text-gray-400 hover:text-primary-400 transition-colors">Pricing</Link></li>
-                                    <li><Link href="#" className="text-base text-gray-400 hover:text-primary-400 transition-colors">Changelog</Link></li>
+                                    <li><Link href="/login" className="text-base text-gray-400 hover:text-primary-400 transition-colors">Integrations</Link></li>
+                                    <li><Link href="/login" className="text-base text-gray-400 hover:text-primary-400 transition-colors">Pricing</Link></li>
+                                    <li><Link href="/login" className="text-base text-gray-400 hover:text-primary-400 transition-colors">Changelog</Link></li>
                                 </ul>
                             </div>
 
                             <div>
                                 <h3 className="text-sm font-heading font-semibold text-white uppercase tracking-wider mb-5">Resources</h3>
                                 <ul className="space-y-4">
-                                    <li><Link href="#" className="text-base text-gray-400 hover:text-primary-400 transition-colors">Documentation</Link></li>
-                                    <li><Link href="#" className="text-base text-gray-400 hover:text-primary-400 transition-colors">Blog</Link></li>
-                                    <li><Link href="#" className="text-base text-gray-400 hover:text-primary-400 transition-colors">Community</Link></li>
-                                    <li><Link href="#" className="text-base text-gray-400 hover:text-primary-400 transition-colors">Contact</Link></li>
+                                    <li><Link href="/login" className="text-base text-gray-400 hover:text-primary-400 transition-colors">Documentation</Link></li>
+                                    <li><Link href="/login" className="text-base text-gray-400 hover:text-primary-400 transition-colors">Blog</Link></li>
+                                    <li><Link href="/register" className="text-base text-gray-400 hover:text-primary-400 transition-colors">Community</Link></li>
+                                    <li><a href="mailto:hello@flatflow.io" className="text-base text-gray-400 hover:text-primary-400 transition-colors">Contact</a></li>
                                 </ul>
                             </div>
 
                             <div>
                                 <h3 className="text-sm font-heading font-semibold text-white uppercase tracking-wider mb-5">Legal</h3>
                                 <ul className="space-y-4">
-                                    <li><Link href="#" className="text-base text-gray-400 hover:text-primary-400 transition-colors">Privacy Policy</Link></li>
-                                    <li><Link href="#" className="text-base text-gray-400 hover:text-primary-400 transition-colors">Terms of Service</Link></li>
-                                    <li><Link href="#" className="text-base text-gray-400 hover:text-primary-400 transition-colors">Security</Link></li>
+                                    <li><Link href="/register" className="text-base text-gray-400 hover:text-primary-400 transition-colors">Privacy Policy</Link></li>
+                                    <li><Link href="/register" className="text-base text-gray-400 hover:text-primary-400 transition-colors">Terms of Service</Link></li>
+                                    <li><Link href="/login" className="text-base text-gray-400 hover:text-primary-400 transition-colors">Security</Link></li>
                                 </ul>
                             </div>
                         </div>
