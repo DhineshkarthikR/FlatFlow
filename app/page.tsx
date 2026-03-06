@@ -79,32 +79,32 @@ export default function LandingPage() {
             </nav>
 
             {/* Hero */}
-            <section className="py-20 lg:py-28">
+            <section className="py-20 lg:py-28 overflow-hidden">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-50 text-primary-700 text-sm font-medium mb-6">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-50 text-primary-700 text-sm font-medium mb-6 animate-fade-in-up opacity-0" style={{ animationDelay: '100ms' }}>
                         <CheckCircle2 className="h-4 w-4" />
                         Trusted by 500+ Housing Societies
                     </div>
-                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-heading leading-tight mb-6 max-w-4xl mx-auto">
+                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-heading leading-tight mb-6 max-w-4xl mx-auto animate-fade-in-up opacity-0" style={{ animationDelay: '300ms' }}>
                         Modern Apartment Society{" "}
                         <span className="text-primary-600">Management</span> Platform
                     </h1>
-                    <p className="text-lg text-muted max-w-2xl mx-auto mb-10">
+                    <p className="text-lg text-muted max-w-2xl mx-auto mb-10 animate-fade-in-up opacity-0" style={{ animationDelay: '500ms' }}>
                         Streamline your housing society operations — from complaints and
                         payments to visitor logs and event bookings — all in one
                         professional platform.
                     </p>
-                    <div className="flex items-center justify-center gap-4">
+                    <div className="flex items-center justify-center gap-4 animate-fade-in-up opacity-0" style={{ animationDelay: '700ms' }}>
                         <Link
                             href="/register"
-                            className="inline-flex items-center gap-2 px-6 py-3 text-base font-medium text-white bg-primary-600 hover:bg-primary-700 rounded-lg transition-colors"
+                            className="inline-flex items-center gap-2 px-6 py-3 text-base font-medium text-white bg-primary-600 hover:bg-primary-700 hover:scale-105 rounded-lg transition-all duration-300"
                         >
                             Start Free Trial
                             <ArrowRight className="h-5 w-5" />
                         </Link>
                         <Link
                             href="/login"
-                            className="px-6 py-3 text-base font-medium text-body border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+                            className="px-6 py-3 text-base font-medium text-body border border-gray-300 rounded-lg hover:bg-gray-50 hover:scale-105 transition-all duration-300"
                         >
                             Sign In
                         </Link>
@@ -115,7 +115,7 @@ export default function LandingPage() {
             {/* Features */}
             <section className="py-20 bg-surface">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
+                    <div className="text-center mb-16 animate-fade-in opacity-0" style={{ animationDelay: '300ms' }}>
                         <h2 className="text-3xl font-bold text-heading mb-4">
                             Everything You Need to Manage Your Society
                         </h2>
@@ -126,10 +126,11 @@ export default function LandingPage() {
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {features.map((feature) => (
+                        {features.map((feature, index) => (
                             <div
                                 key={feature.title}
-                                className="bg-white rounded-lg border border-gray-200 shadow-sm p-6 hover:shadow-md transition-shadow"
+                                className="bg-white rounded-lg border border-gray-200 shadow-sm p-6 hover:shadow-md hover:-translate-y-1 transition-all duration-300 animate-fade-in-up opacity-0"
+                                style={{ animationDelay: `${(index + 3) * 150}ms` }}
                             >
                                 <div className="h-10 w-10 bg-primary-50 rounded-lg flex items-center justify-center mb-4">
                                     <feature.icon className="h-5 w-5 text-primary-600" />
@@ -155,8 +156,8 @@ export default function LandingPage() {
                             { value: "50,000+", label: "Residents" },
                             { value: "₹2Cr+", label: "Payments Processed" },
                             { value: "99.9%", label: "Uptime" },
-                        ].map((stat) => (
-                            <div key={stat.label}>
+                        ].map((stat, index) => (
+                            <div key={stat.label} className="animate-fade-in opacity-0" style={{ animationDelay: `${(index + 2) * 200}ms` }}>
                                 <p className="text-3xl font-bold text-primary-600 mb-1">
                                     {stat.value}
                                 </p>
@@ -169,7 +170,7 @@ export default function LandingPage() {
 
             {/* CTA */}
             <section className="py-20 bg-heading">
-                <div className="max-w-3xl mx-auto px-4 text-center">
+                <div className="max-w-3xl mx-auto px-4 text-center animate-fade-in-up opacity-0" style={{ animationDelay: '200ms' }}>
                     <h2 className="text-3xl font-bold text-white mb-4">
                         Ready to Transform Your Society Management?
                     </h2>
@@ -179,7 +180,7 @@ export default function LandingPage() {
                     </p>
                     <Link
                         href="/register"
-                        className="inline-flex items-center gap-2 px-6 py-3 text-base font-medium text-heading bg-white hover:bg-gray-100 rounded-lg transition-colors"
+                        className="inline-flex items-center gap-2 px-6 py-3 text-base font-medium text-heading bg-white hover:bg-gray-100 hover:scale-105 rounded-lg transition-all duration-300"
                     >
                         Get Started for Free
                         <ArrowRight className="h-5 w-5" />
@@ -188,7 +189,7 @@ export default function LandingPage() {
             </section>
 
             {/* Footer */}
-            <footer className="bg-gray-900 border-t border-gray-800 pt-16 pb-8">
+            <footer className="bg-gray-900 border-t border-gray-800 pt-16 pb-8 animate-fade-in opacity-0" style={{ animationDelay: '400ms' }}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                         <div className="md:col-span-1">
@@ -204,29 +205,29 @@ export default function LandingPage() {
                         <div>
                             <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Product</h3>
                             <ul className="space-y-3">
-                                <li><Link href="#features" className="text-sm text-gray-400 hover:text-white transition-colors">Features</Link></li>
-                                <li><Link href="#pricing" className="text-sm text-gray-400 hover:text-white transition-colors">Pricing</Link></li>
-                                <li><Link href="#security" className="text-sm text-gray-400 hover:text-white transition-colors">Security</Link></li>
-                                <li><Link href="#updates" className="text-sm text-gray-400 hover:text-white transition-colors">Updates</Link></li>
+                                <li><Link href="#features" className="text-sm text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-300">Features</Link></li>
+                                <li><Link href="#pricing" className="text-sm text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-300">Pricing</Link></li>
+                                <li><Link href="#security" className="text-sm text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-300">Security</Link></li>
+                                <li><Link href="#updates" className="text-sm text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-300">Updates</Link></li>
                             </ul>
                         </div>
 
                         <div>
                             <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Company</h3>
                             <ul className="space-y-3">
-                                <li><Link href="#about" className="text-sm text-gray-400 hover:text-white transition-colors">About Us</Link></li>
-                                <li><Link href="#careers" className="text-sm text-gray-400 hover:text-white transition-colors">Careers</Link></li>
-                                <li><Link href="#blog" className="text-sm text-gray-400 hover:text-white transition-colors">Blog</Link></li>
-                                <li><Link href="#contact" className="text-sm text-gray-400 hover:text-white transition-colors">Contact</Link></li>
+                                <li><Link href="#about" className="text-sm text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-300">About Us</Link></li>
+                                <li><Link href="#careers" className="text-sm text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-300">Careers</Link></li>
+                                <li><Link href="#blog" className="text-sm text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-300">Blog</Link></li>
+                                <li><Link href="#contact" className="text-sm text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-300">Contact</Link></li>
                             </ul>
                         </div>
 
                         <div>
                             <h3 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Legal</h3>
                             <ul className="space-y-3">
-                                <li><Link href="#privacy" className="text-sm text-gray-400 hover:text-white transition-colors">Privacy Policy</Link></li>
-                                <li><Link href="#terms" className="text-sm text-gray-400 hover:text-white transition-colors">Terms of Service</Link></li>
-                                <li><Link href="#cookies" className="text-sm text-gray-400 hover:text-white transition-colors">Cookie Policy</Link></li>
+                                <li><Link href="#privacy" className="text-sm text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-300">Privacy Policy</Link></li>
+                                <li><Link href="#terms" className="text-sm text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-300">Terms of Service</Link></li>
+                                <li><Link href="#cookies" className="text-sm text-gray-400 hover:text-white hover:translate-x-1 inline-block transition-all duration-300">Cookie Policy</Link></li>
                             </ul>
                         </div>
                     </div>
@@ -236,9 +237,9 @@ export default function LandingPage() {
                             &copy; {new Date().getFullYear()} FlatFlow. All rights reserved.
                         </p>
                         <div className="flex items-center gap-4 mt-4 md:mt-0">
-                            <span className="text-gray-400 hover:text-white cursor-pointer transition-colors text-sm">Twitter</span>
-                            <span className="text-gray-400 hover:text-white cursor-pointer transition-colors text-sm">LinkedIn</span>
-                            <span className="text-gray-400 hover:text-white cursor-pointer transition-colors text-sm">GitHub</span>
+                            <span className="text-gray-400 hover:text-white hover:-translate-y-1 cursor-pointer transition-all duration-300 text-sm inline-block">Twitter</span>
+                            <span className="text-gray-400 hover:text-white hover:-translate-y-1 cursor-pointer transition-all duration-300 text-sm inline-block">LinkedIn</span>
+                            <span className="text-gray-400 hover:text-white hover:-translate-y-1 cursor-pointer transition-all duration-300 text-sm inline-block">GitHub</span>
                         </div>
                     </div>
                 </div>
