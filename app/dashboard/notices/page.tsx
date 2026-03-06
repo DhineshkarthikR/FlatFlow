@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
+import SectionIntro from "@/components/ui/SectionIntro";
 import Card from "@/components/ui/Card";
 import EmptyState from "@/components/ui/EmptyState";
 import { CardSkeleton } from "@/components/ui/LoadingSkeleton";
@@ -17,6 +18,8 @@ interface Notice {
 export default function NoticesPage() {
     const [notices, setNotices] = useState<Notice[]>([]);
     const [loading, setLoading] = useState(true);
+    const [showIntro, setShowIntro] = useState(true);
+    const handleIntroComplete = useCallback(() => setShowIntro(false), []);
 
     useEffect(() => {
         async function fetchNotices() {
@@ -34,51 +37,54 @@ export default function NoticesPage() {
     }, []);
 
     return (
-        <div className="space-y-6">
-            <h1 className="text-2xl font-bold text-heading">Notices</h1>
+        <>
+            {showIntro && <SectionIntro theme="notices" onComplete={handleIntroComplete} />}
+            <div className={`space-y-6 transition-all duration-700 ${showIntro ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}>
+                <h1 className="text-2xl font-bold text-heading">Notices</h1>
 
-            {loading ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {Array.from({ length: 4 }).map((_, i) => (
-                        <CardSkeleton key={i} />
-                    ))}
-                </div>
-            ) : notices.length === 0 ? (
-                <EmptyState
-                    title="No notices"
-                    description="There are no notices posted yet."
-                    icon={<Bell className="h-12 w-12 text-gray-300 mb-4" />}
-                />
-            ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {notices.map((notice) => (
-                        <Card key={notice._id}>
-                            <div className="flex items-start gap-3">
-                                <div className="h-10 w-10 rounded-lg bg-primary-50 flex items-center justify-center flex-shrink-0">
-                                    <Bell className="h-5 w-5 text-primary-600" />
-                                </div>
-                                <div className="flex-1 min-w-0">
-                                    <h3 className="text-base font-semibold text-heading mb-1">
-                                        {notice.title}
-                                    </h3>
-                                    <p className="text-sm text-body leading-relaxed mb-3">
-                                        {notice.content}
-                                    </p>
-                                    <div className="flex items-center gap-3 text-xs text-muted">
-                                        <span className="flex items-center gap-1">
-                                            <Calendar className="h-3 w-3" />
-                                            {new Date(notice.createdAt).toLocaleDateString()}
-                                        </span>
-                                        {notice.createdBy && (
-                                            <span>by {notice.createdBy.name}</span>
-                                        )}
+                {loading ? (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {Array.from({ length: 4 }).map((_, i) => (
+                            <CardSkeleton key={i} />
+                        ))}
+                    </div>
+                ) : notices.length === 0 ? (
+                    <EmptyState
+                        title="No notices"
+                        description="There are no notices posted yet."
+                        icon={<Bell className="h-12 w-12 text-gray-300 mb-4" />}
+                    />
+                ) : (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {notices.map((notice) => (
+                            <Card key={notice._id}>
+                                <div className="flex items-start gap-3">
+                                    <div className="h-10 w-10 rounded-lg bg-primary-50 flex items-center justify-center flex-shrink-0">
+                                        <Bell className="h-5 w-5 text-primary-600" />
+                                    </div>
+                                    <div className="flex-1 min-w-0">
+                                        <h3 className="text-base font-semibold text-heading mb-1">
+                                            {notice.title}
+                                        </h3>
+                                        <p className="text-sm text-body leading-relaxed mb-3">
+                                            {notice.content}
+                                        </p>
+                                        <div className="flex items-center gap-3 text-xs text-muted">
+                                            <span className="flex items-center gap-1">
+                                                <Calendar className="h-3 w-3" />
+                                                {new Date(notice.createdAt).toLocaleDateString()}
+                                            </span>
+                                            {notice.createdBy && (
+                                                <span>by {notice.createdBy.name}</span>
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </Card>
-                    ))}
-                </div>
-            )}
-        </div>
+                            </Card>
+                        ))}
+                    </div>
+                )}
+            </div>
+        </>
     );
 }

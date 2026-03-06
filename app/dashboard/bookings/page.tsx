@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
+import SectionIntro from "@/components/ui/SectionIntro";
 import Button from "@/components/ui/Button";
 import Modal from "@/components/ui/Modal";
 import Input from "@/components/ui/Input";
@@ -42,6 +43,8 @@ export default function BookingsPage() {
         facility: "Clubhouse",
     });
     const [error, setError] = useState("");
+    const [showIntro, setShowIntro] = useState(true);
+    const handleIntroComplete = useCallback(() => setShowIntro(false), []);
 
     useEffect(() => {
         fetchEvents();
@@ -100,79 +103,82 @@ export default function BookingsPage() {
     ];
 
     return (
-        <div className="space-y-6">
-            <div className="flex items-center justify-between">
-                <h1 className="text-2xl font-bold text-heading">Event Bookings</h1>
-                <Button onClick={() => setIsModalOpen(true)}>
-                    <Plus className="h-4 w-4 mr-2" />
-                    Book Facility
-                </Button>
-            </div>
+        <>
+            {showIntro && <SectionIntro theme="bookings" onComplete={handleIntroComplete} />}
+            <div className={`space-y-6 transition-all duration-700 ${showIntro ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}>
+                <div className="flex items-center justify-between">
+                    <h1 className="text-2xl font-bold text-heading">Event Bookings</h1>
+                    <Button onClick={() => setIsModalOpen(true)}>
+                        <Plus className="h-4 w-4 mr-2" />
+                        Book Facility
+                    </Button>
+                </div>
 
-            {loading ? (
-                <LoadingSkeleton rows={5} />
-            ) : events.length === 0 ? (
-                <EmptyState
-                    title="No bookings"
-                    description="You haven't made any event bookings yet."
-                    icon={<Calendar className="h-12 w-12 text-gray-300 mb-4" />}
-                />
-            ) : (
-                <Table columns={columns} data={events} />
-            )}
+                {loading ? (
+                    <LoadingSkeleton rows={5} />
+                ) : events.length === 0 ? (
+                    <EmptyState
+                        title="No bookings"
+                        description="You haven't made any event bookings yet."
+                        icon={<Calendar className="h-12 w-12 text-gray-300 mb-4" />}
+                    />
+                ) : (
+                    <Table columns={columns} data={events} />
+                )}
 
-            <Modal
-                isOpen={isModalOpen}
-                onClose={() => setIsModalOpen(false)}
-                title="Book a Facility"
-            >
-                <form onSubmit={handleSubmit} className="space-y-4">
-                    {error && (
-                        <div className="p-3 bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg">
-                            {error}
+                <Modal
+                    isOpen={isModalOpen}
+                    onClose={() => setIsModalOpen(false)}
+                    title="Book a Facility"
+                >
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                        {error && (
+                            <div className="p-3 bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg">
+                                {error}
+                            </div>
+                        )}
+                        <Input
+                            label="Event Title"
+                            placeholder="e.g. Birthday Party"
+                            value={form.title}
+                            onChange={(e) => setForm({ ...form, title: e.target.value })}
+                            required
+                        />
+                        <Textarea
+                            label="Description"
+                            placeholder="Details about the event"
+                            value={form.description}
+                            onChange={(e) => setForm({ ...form, description: e.target.value })}
+                            required
+                        />
+                        <Select
+                            label="Facility"
+                            options={facilities}
+                            value={form.facility}
+                            onChange={(e) => setForm({ ...form, facility: e.target.value })}
+                        />
+                        <Input
+                            label="Date & Time"
+                            type="datetime-local"
+                            value={form.date}
+                            onChange={(e) => setForm({ ...form, date: e.target.value })}
+                            required
+                        />
+                        <div className="flex justify-end gap-3 pt-2">
+                            <Button
+                                variant="outline"
+                                onClick={() => setIsModalOpen(false)}
+                                type="button"
+                            >
+                                Cancel
+                            </Button>
+                            <Button type="submit" loading={submitting}>
+                                Book
+                            </Button>
                         </div>
-                    )}
-                    <Input
-                        label="Event Title"
-                        placeholder="e.g. Birthday Party"
-                        value={form.title}
-                        onChange={(e) => setForm({ ...form, title: e.target.value })}
-                        required
-                    />
-                    <Textarea
-                        label="Description"
-                        placeholder="Details about the event"
-                        value={form.description}
-                        onChange={(e) => setForm({ ...form, description: e.target.value })}
-                        required
-                    />
-                    <Select
-                        label="Facility"
-                        options={facilities}
-                        value={form.facility}
-                        onChange={(e) => setForm({ ...form, facility: e.target.value })}
-                    />
-                    <Input
-                        label="Date & Time"
-                        type="datetime-local"
-                        value={form.date}
-                        onChange={(e) => setForm({ ...form, date: e.target.value })}
-                        required
-                    />
-                    <div className="flex justify-end gap-3 pt-2">
-                        <Button
-                            variant="outline"
-                            onClick={() => setIsModalOpen(false)}
-                            type="button"
-                        >
-                            Cancel
-                        </Button>
-                        <Button type="submit" loading={submitting}>
-                            Book
-                        </Button>
-                    </div>
-                </form>
-            </Modal>
-        </div>
+                    </form>
+                </Modal>
+            </div>
+        </>
     );
 }
