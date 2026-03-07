@@ -12,7 +12,7 @@ import {
     UserCheck,
     BarChart3,
     LogOut,
-    Building2,
+    Layers,
     X,
 } from "lucide-react";
 
@@ -70,7 +70,7 @@ export default function Sidebar({ role, onLogout, isOpen, setIsOpen }: SidebarPr
                 <div className="p-6 border-b border-white/5 flex items-center justify-between">
                     <Link href={role === "admin" ? "/admin" : "/dashboard"} className="flex items-center gap-3 group">
                         <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-tr from-primary-600 to-cyan-500 shadow-[0_0_15px_rgba(79,70,229,0.3)] transition-all group-hover:scale-105">
-                            <Building2 className="h-4 w-4 text-white" />
+                            <Layers className="h-4 w-4 text-white" />
                         </div>
                         <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">FlatFlow</span>
                     </Link>

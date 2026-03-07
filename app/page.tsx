@@ -3,7 +3,7 @@
 import Link from "next/link";
 import ScrollAnimations from "@/components/ui/ScrollAnimations";
 import {
-    Building2,
+    Layers,
     MessageSquare,
     CreditCard,
     UserCheck,
@@ -17,7 +17,6 @@ import {
     Bell,
     Calendar,
     CheckCircle2,
-    Layers,
     MousePointer2,
     Palette,
     Code2,
@@ -57,7 +56,7 @@ const features = [
         description: "Role-based access control with encrypted authentication and protected admin routes.",
     },
     {
-        icon: Building2,
+        icon: Layers,
         title: "Event Booking",
         description: "Book clubhouse and community facilities with conflict detection and calendar management.",
     },
@@ -89,7 +88,7 @@ export default function LandingPage() {
                         <div className="flex items-center justify-between h-20">
                             <Link href="/" aria-label="FlatFlow Home" className="flex items-center gap-3 group cursor-pointer">
                                 <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-tr from-primary-600 to-cyan-500 shadow-[0_0_20px_rgba(79,70,229,0.4)] transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_30px_rgba(79,70,229,0.6)]">
-                                    <Building2 className="h-5 w-5 text-white" />
+                                    <Layers className="h-5 w-5 text-white" />
                                 </div>
                                 <span className="text-2xl font-heading font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">FlatFlow</span>
                             </Link>
@@ -122,7 +121,7 @@ export default function LandingPage() {
                             Modernize your<br />
                             <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-indigo-500 drop-shadow-[0_0_30px_rgba(79,70,229,0.3)]">
                                 <span className="inline-flex items-center gap-3">
-                                    <Building2 className="h-14 w-14 sm:h-20 sm:w-20 text-cyan-400 animate-[bounce_3s_ease-in-out_infinite]" />
+                                    <Layers className="h-14 w-14 sm:h-20 sm:w-20 text-cyan-400 animate-[bounce_3s_ease-in-out_infinite]" />
                                 </span>{" "}
                                 community
                             </span>
@@ -172,7 +171,7 @@ export default function LandingPage() {
                                         <div className="w-48 xl:w-56 border-r border-white/10 bg-white/[0.02] p-4 flex flex-col gap-2 relative z-10">
                                             <div className="flex items-center gap-2 mb-6 px-2">
                                                 <div className="w-6 h-6 rounded bg-gradient-to-tr from-primary-600 to-cyan-500 flex items-center justify-center shadow-[0_0_10px_rgba(79,70,229,0.5)]">
-                                                    <Building2 className="w-3.5 h-3.5 text-white" />
+                                                    <Layers className="w-3.5 h-3.5 text-white" />
                                                 </div>
                                                 <span className="text-sm font-heading font-bold text-white">FlatFlow</span>
                                             </div>
@@ -215,7 +214,7 @@ export default function LandingPage() {
                                                 {[
                                                     { label: "Total Revenue", val: "₹1.42M", trend: "+12.5%", color: "primary", Icon: IndianRupee },
                                                     { label: "Active Complaints", val: "24", trend: "+4 New", color: "cyan", Icon: MessageSquare, trendColor: "text-red-400" },
-                                                    { label: "Occupancy Rate", val: "96%", trend: "+1.2%", color: "purple", Icon: Building2 },
+                                                    { label: "Occupancy Rate", val: "96%", trend: "+1.2%", color: "purple", Icon: Layers },
                                                 ].map((s, i) => (
                                                     <div key={i} className="bg-[#131A2A]/80 backdrop-blur-md rounded-xl border border-white/5 p-4 flex flex-col gap-2 relative overflow-hidden">
                                                         <div className={`absolute top-0 right-0 w-16 h-16 bg-${s.color}-500/10 blur-xl rounded-full translate-x-1/2 -translate-y-1/2`} />
@@ -323,7 +322,7 @@ export default function LandingPage() {
                                             <span className="text-gray-500 text-xs">×</span>
                                         </div>
                                         <div className="grid grid-cols-4 gap-2">
-                                            {[MessageSquare, CreditCard, Users, Shield, Building2, Bell, Calendar, Activity].map((Icon, i) => (
+                                            {[MessageSquare, CreditCard, Users, Shield, Layers, Bell, Calendar, Activity].map((Icon, i) => (
                                                 <div key={i} className="w-9 h-9 rounded-lg bg-white/5 border border-white/5 flex items-center justify-center text-gray-400 hover:text-primary-400 hover:bg-primary-500/10 transition-all cursor-pointer">
                                                     <Icon className="w-4 h-4" />
                                                 </div>
@@ -602,7 +601,7 @@ export default function LandingPage() {
                             <div className="col-span-2">
                                 <div className="flex items-center gap-3 mb-6">
                                     <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-tr from-primary-600 to-cyan-500">
-                                        <Building2 className="h-4 w-4 text-white" />
+                                        <Layers className="h-4 w-4 text-white" />
                                     </div>
                                     <span className="text-2xl font-heading font-bold text-white">FlatFlow</span>
                                 </div>
