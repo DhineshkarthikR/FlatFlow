@@ -24,6 +24,41 @@
   box-sizing: border-box;
 }
 
+/* ── Pointer cursor for all clickable elements ── */
+a,
+button,
+summary,
+label[for],
+[role="button"],
+[role="link"],
+[role="menuitem"],
+[role="tab"],
+[role="option"],
+[onclick],
+[tabindex]:not([tabindex="-1"]),
+select,
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Preserve default cursor for text-input elements */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="url"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+textarea,
+[contenteditable="true"] {
+  cursor: text;
+}
+
 body {
   font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
   color: var(--body);

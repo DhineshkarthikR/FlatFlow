@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlatFlow — Full Project Documentation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            securityLevel: 'loose',
+            fontFamily: 'Inter, sans-serif'
+        });
+    </script>
+    <style>
+        :root {
+            --bg: #0B0F19;
+            --surface: #131A2A;
+            --primary: #4F46E5;
+            --cyan: #06B6D4;
+            --text: #D1D5DB;
+            --heading: #FFFFFF;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+            color: var(--heading);
+            margin-top: 2em;
+            margin-bottom: 0.5em;
+        }
+
+        h1 { font-size: 3rem; font-weight: 800; border-bottom: 2px solid var(--primary); padding-bottom: 10px; margin-top: 0; }
+        h2 { font-size: 2rem; border-left: 4px solid var(--cyan); padding-left: 15px; background: rgba(6, 182, 212, 0.05); padding-top: 10px; padding-bottom: 10px; }
+
+        a { color: var(--cyan); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        pre, code {
+            font-family: 'Fira Code', monospace;
+            background: var(--surface);
+            border-radius: 6px;
+        }
+
+        code { padding: 2px 5px; font-size: 0.9em; }
+        pre { padding: 15px; overflow-x: auto; border: 1px solid var(--border); }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: var(--surface);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th { background: rgba(79, 70, 229, 0.2); color: var(--heading); font-weight: 600; }
+        tr:last-child td { border-bottom: none; }
+
+        blockquote {
+            margin: 20px 0;
+            padding: 15px 20px;
+            background: rgba(79, 70, 229, 0.1);
+            border-left: 4px solid var(--primary);
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .mermaid {
+            background: #111;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            margin: 20px 0;
+        }
+
+        .page-break { page-break-before: always; }
+
+        .slide-marker {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .status-live { background: rgba(16, 185, 129, 0.2); color: #10B981; }
+
+        @media print {
+            body { background: white; color: black; }
+            .container { max-width: 100%; padding: 0; }
+            h1, h2, h3, h4 { color: black; page-break-after: avoid; }
+            .mermaid { border: 1px solid #ccc; filter: invert(1) hue-rotate(180deg); }
+            table { border: 1px solid #ccc; background: white; }
+            th { background: #eee; color: black; }
+            blockquote { background: #f9f9f9; border-left-color: #333; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header style="text-align: center; margin-bottom: 60px;">
+        <h1 style="border: none;">FlatFlow</h1>
+        <p style="font-size: 1.2rem; margin-top: -20px;">Complete Product Documentation & Presentation Guide</p>
+        <p style="color: var(--cyan); font-weight: 600;">March 2026</p>
+    </header>
+
+    <section id="prd">
+        <h1>1. Product Requirements Document (PRD)</h1>
+        <p><strong>Version:</strong> 1.0 &nbsp; | &nbsp; <strong>Status:</strong> Live</p>
+
+        <h2>1. Product Overview</h2>
+        <p>FlatFlow is a full-stack Apartment Society Management web application that digitizes residential operations in India. It provides separate dashboards for Residents and Admins, enabling management of complaints, payments, visitors, and analytics.</p>
+
+        <h3>1.1 Vision Statement</h3>
+        <blockquote>"To replace paper-based registers and manual collection with a beautiful, secure digital platform."</blockquote>
+
+        <h2>2. Problem Statement</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Pain Point</th>
+                    <th>FlatFlow Solution</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Complaint tracking</td><td>Centralized system with status tracking & image uploads</td></tr>
+                <tr><td>Payment collection</td><td>Razorpay-powered online payment with receipts</td></tr>
+                <tr><td>Visitor management</td><td>Digital visitor log with entry/exit timestamps</td></tr>
+                <tr><td>Notices & Events</td><td>In-app notice board & facility booking</td></tr>
+                <tr><td>Transparency</td><td>Role-based access & expense tracking reports</td></tr>
+            </tbody>
+        </table>
+
+        <h2>3. Tech Stack</h2>
+        <table>
+            <thead>
+                <tr><th>Layer</th><th>Technology</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Framework</td><td>Next.js 14 (App Router)</td></tr>
+                <tr><td>Database</td><td>MongoDB Atlas + Mongoose</td></tr>
+                <tr><td>Payments</td><td>Razorpay SDK</td></tr>
+                <tr><td>Auth</td><td>JWT + bcrypt + Google OAuth</td></tr>
+                <tr><td>UI/Styling</td><td>Tailwind CSS + Lucide Icons</td></tr>
+                <tr><td>Charts</td><td>Recharts</td></tr>
+            </tbody>
+        </table>
+
+        <h2>4. Data Schema</h2>
+        <div class="mermaid">
+        erDiagram
+            USER ||--o{ COMPLAINT : "raises"
+            USER ||--o{ PAYMENT : "makes"
+            USER ||--o{ EVENT : "books"
+            USER ||--o{ NOTICE : "creates"
+            USER ||--o{ EXPENSE : "records"
+            VISITOR }o--|| USER : "visits flat"
+            USER {
+                string name
+                string email
+                string role
+                string flatNumber
+            }
+            COMPLAINT {
+                string title
+                string status
+                string imageUrl
+            }
+            PAYMENT {
+                number amount
+                string status
+                string razorpayOrderId
+            }
+        </div>
+    </section>
+
+    <div class="page-break"></div>
+
+    <section id="user-flows">
+        <h1>2. User Flows & Architecture</h1>
+
+        <h2>2.1 Authentication Flow</h2>
+        <div class="mermaid">
+        flowchart TD
+            A[Landing Page] --> B{Account?}
+            B -->|No| C[Register]
+            B -->|Yes| D[Login]
+            D --> E{Method}
+            E -->|Password| F[Verify DB]
+            E -->|Google| G[Google OAuth]
+            F --> H{Role?}
+            G --> H
+            H -->|Admin| I[/admin]
+            H -->|Resident| J[/dashboard]
+        </div>
+
+        <h2>2.2 Resident Journey</h2>
+        <div class="mermaid">
+        flowchart TD
+            A[/dashboard] --> B[Complaints]
+            A --> C[Payments]
+            A --> D[Visitors]
+            B --> B1[Create New + Upload Image]
+            C --> C1[Pay Maintenance via Razorpay]
+            D --> D1[View Security Logs]
+        </div>
+
+        <h2>2.3 Razorpay Payment Flow</h2>
+        <div class="mermaid">
+        sequenceDiagram
+            Resident->>API: Initiate Payment
+            API->>Razorpay: Create Order
+            Razorpay-->>API: Order ID
+            API-->>Resident: Checkout Popup
+            Resident->>Razorpay: Complete Payment
+            Razorpay-->>API: Verification Webhook/Response
+            API->>DB: Update Payment Status
+        </div>
+    </section>
+
+    <div class="page-break"></div>
+
+    <section id="presentation">
+        <h1>3. Presentation Slides Guide</h1>
+
+        <div>
+            <span class="slide-marker">Slide 1-3</span>
+            <h3>Introduction & Pain Points</h3>
+            <p>Traditional societies rely on WhatsApp and paper. FlatFlow introduces **Accountability** and **Transparency** through digitization.</p>
+        </div>
+
+        <div>
+            <span class="slide-marker">Slide 4-6</span>
+            <h3>Core Modules Demo</h3>
+            <ul>
+                <li><strong>Admin Dashboard:</strong> Real-time charts showing revenue and complaint status.</li>
+                <li><strong>Payment Integration:</strong> Live demo of Razorpay checkout flow.</li>
+                <li><strong>Security:</strong> Digital visitor tracking replacing gate registers.</li>
+            </ul>
+        </div>
+
+        <h2>System Architecture</h2>
+        <div class="mermaid">
+        graph TB
+            Client[Browser] --> MW[Middleware JWT]
+            MW --> Pages[Next.js Pages]
+            MW --> API[API Routes]
+            API --> DB[(MongoDB Atlas)]
+            API --> RZ[Razorpay Service]
+            API --> UT[UploadThing]
+        </div>
+
+        <h2>Future Roadmap</h2>
+        <table>
+            <tr><td>📱 Mobile App</td><td>React Native version for security guards</td></tr>
+            <tr><td>🔔 WhatsApp Alerts</td><td>Real-time visitor notifications via WhatsApp API</td></tr>
+            <tr><td>🤖 AI Support</td><td>Automated complaint categorization</td></tr>
+        </table>
+    </section>
+
+    <footer style="margin-top: 100px; text-align: center; font-size: 0.9rem; opacity: 0.7; border-top: 1px solid var(--border); padding-top: 20px;">
+        FlatFlow Inc. © 2026 | Generated for Project Presentation
+    </footer>
+</div>
+
+</body>
+</html>
+
