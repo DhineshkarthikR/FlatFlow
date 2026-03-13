@@ -12,11 +12,11 @@ export default function Badge({
     className = "",
 }: BadgeProps) {
     const variants = {
-        default: "bg-gray-100 text-gray-700",
-        success: "bg-green-50 text-green-700",
-        warning: "bg-amber-50 text-amber-700",
-        danger: "bg-red-50 text-red-700",
-        info: "bg-blue-50 text-blue-700",
+        default: "bg-[var(--badge-default-bg)] text-[var(--badge-default-text)]",
+        success: "bg-[var(--badge-success-bg)] text-[var(--badge-success-text)]",
+        warning: "bg-[var(--badge-warning-bg)] text-[var(--badge-warning-text)]",
+        danger: "bg-[var(--badge-danger-bg)] text-[var(--badge-danger-text)]",
+        info: "bg-[var(--badge-info-bg)] text-[var(--badge-info-text)]",
     };
 
     return (

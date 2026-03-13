@@ -79,10 +79,10 @@ export default function ProfileSettings({ userRole }: ProfileSettingsProps) {
 
     return (
         <div className="max-w-2xl mx-auto space-y-6 py-6">
-            <h1 className="text-2xl font-bold text-heading mb-6">Profile Settings</h1>
+            <h1 className="text-2xl font-bold text-[var(--text-heading)] mb-6">Profile Settings</h1>
 
             {message.text && (
-                <div className={`p-4 rounded-lg mb-6 text-sm ${message.type === "success" ? "bg-green-50 text-green-700 border border-green-200" : "bg-red-50 text-red-700 border border-red-200"}`}>
+                <div className={`p-4 rounded-lg mb-6 text-sm ${message.type === "success" ? "bg-[var(--badge-success-bg)] text-[var(--badge-success-text)] border border-[var(--badge-success-text)]/20" : "bg-[var(--badge-danger-bg)] text-[var(--badge-danger-text)] border border-[var(--badge-danger-text)]/20"}`}>
                     {message.text}
                 </div>
             )}
@@ -123,10 +123,10 @@ export default function ProfileSettings({ userRole }: ProfileSettingsProps) {
 
             <Card className="!p-6">
                 <CardHeader>
-                    <CardTitle className="text-red-600">Delete Account</CardTitle>
+                    <CardTitle className="text-red-500">Delete Account</CardTitle>
                 </CardHeader>
                 <div className="space-y-4">
-                    <p className="text-sm text-body">
+                    <p className="text-sm text-[var(--text-body)]">
                         Once you delete your account, there is no going back. Please be certain.
                     </p>
                     <Button

@@ -9,7 +9,7 @@ interface CardProps {
 export default function Card({ children, className = "", padding = true }: CardProps) {
     return (
         <div
-            className={`bg-[#131A2A]/80 backdrop-blur-md rounded-2xl border border-white/5 shadow-lg ${padding ? "p-6 sm:p-8" : ""
+            className={`bg-[var(--bg-surface)]/80 backdrop-blur-md rounded-2xl border border-[var(--border-subtle)] shadow-lg shadow-[var(--shadow-color)] transition-colors duration-300 ${padding ? "p-6 sm:p-8" : ""
                 } ${className}`}
         >
             {children}
@@ -25,7 +25,7 @@ export function CardHeader({
     className?: string;
 }) {
     return (
-        <div className={`mb-6 border-b border-white/5 pb-4 ${className}`}>
+        <div className={`mb-6 border-b border-[var(--border-subtle)] pb-4 ${className}`}>
             {children}
         </div>
     );
@@ -39,7 +39,7 @@ export function CardTitle({
     className?: string;
 }) {
     return (
-        <h3 className={`text-xl font-semibold text-white tracking-wide ${className}`}>
+        <h3 className={`text-xl font-semibold text-[var(--text-heading)] tracking-wide ${className}`}>
             {children}
         </h3>
     );

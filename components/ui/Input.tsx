@@ -25,7 +25,7 @@ export default function Input({
             {label && (
                 <label
                     htmlFor={inputId}
-                    className="block text-sm font-medium text-gray-300"
+                    className="block text-sm font-medium text-[var(--text-body)]"
                 >
                     {label}
                 </label>
@@ -34,7 +34,7 @@ export default function Input({
                 <input
                     id={inputId}
                     type={currentType}
-                    className={`w-full px-4 py-2.5 bg-[#0B0F19] rounded-xl border border-white/10 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 transition-all shadow-inner ${error ? "border-red-500/50 focus:ring-red-500/50" : "hover:border-white/20"} ${isPassword ? "pr-10" : ""} ${className}`}
+                    className={`w-full px-4 py-2.5 bg-[var(--bg-input)] rounded-xl border border-[var(--border-color)] text-sm text-[var(--text-heading)] placeholder:text-[var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]/50 focus:border-[var(--accent-primary)] transition-all shadow-inner ${error ? "border-red-500/50 focus:ring-red-500/50" : "hover:border-[var(--border-color)]"} ${isPassword ? "pr-10" : ""} ${className}`}
                     {...props}
                 />
                 {isPassword && (
@@ -42,7 +42,7 @@ export default function Input({
                         type="button"
                         aria-label={showPassword ? "Hide password" : "Show password"}
                         onClick={() => setShowPassword(!showPassword)}
-                        className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300 focus:outline-none transition-colors"
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--text-muted)] hover:text-[var(--text-body)] focus:outline-none transition-colors"
                     >
                         {showPassword ? (
                             <EyeOff className="h-4 w-4" />
@@ -76,14 +76,14 @@ export function Textarea({
             {label && (
                 <label
                     htmlFor={inputId}
-                    className="block text-sm font-medium text-gray-300"
+                    className="block text-sm font-medium text-[var(--text-body)]"
                 >
                     {label}
                 </label>
             )}
             <textarea
                 id={inputId}
-                className={`w-full px-4 py-2.5 bg-[#0B0F19] rounded-xl border border-white/10 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 transition-all shadow-inner resize-none ${error ? "border-red-500/50 focus:ring-red-500/50" : "hover:border-white/20"} ${className}`}
+                className={`w-full px-4 py-2.5 bg-[var(--bg-input)] rounded-xl border border-[var(--border-color)] text-sm text-[var(--text-heading)] placeholder:text-[var(--text-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]/50 focus:border-[var(--accent-primary)] transition-all shadow-inner resize-none ${error ? "border-red-500/50 focus:ring-red-500/50" : "hover:border-[var(--border-color)]"} ${className}`}
                 rows={4}
                 {...props}
             />
@@ -113,18 +113,18 @@ export function Select({
             {label && (
                 <label
                     htmlFor={inputId}
-                    className="block text-sm font-medium text-gray-300"
+                    className="block text-sm font-medium text-[var(--text-body)]"
                 >
                     {label}
                 </label>
             )}
             <select
                 id={inputId}
-                className={`w-full px-4 py-2.5 bg-[#0B0F19] rounded-xl border border-white/10 text-sm text-white focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500 transition-all shadow-inner appearance-none ${error ? "border-red-500/50 focus:ring-red-500/50" : "hover:border-white/20"} ${className}`}
+                className={`w-full px-4 py-2.5 bg-[var(--bg-input)] rounded-xl border border-[var(--border-color)] text-sm text-[var(--text-heading)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-primary)]/50 focus:border-[var(--accent-primary)] transition-all shadow-inner appearance-none ${error ? "border-red-500/50 focus:ring-red-500/50" : "hover:border-[var(--border-color)]"} ${className}`}
                 {...props}
             >
                 {options.map((opt) => (
-                    <option key={opt.value} value={opt.value} className="bg-[#131A2A] text-white">
+                    <option key={opt.value} value={opt.value} className="bg-[var(--bg-elevated)] text-[var(--text-heading)]">
                         {opt.label}
                     </option>
                 ))}

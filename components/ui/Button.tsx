@@ -17,19 +17,19 @@ export default function Button({
     ...props
 }: ButtonProps) {
     const baseStyles =
-        "inline-flex items-center justify-center font-medium rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#0B0F19] disabled:opacity-50 disabled:cursor-not-allowed";
+        "inline-flex items-center justify-center font-medium rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[var(--bg-primary)] disabled:opacity-50 disabled:cursor-not-allowed";
 
     const variants = {
         primary:
-            "bg-primary-600 text-white hover:bg-primary-500 focus:ring-primary-500 shadow-[0_0_15px_rgba(79,70,229,0.3)] hover:shadow-[0_0_25px_rgba(79,70,229,0.5)]",
+            "bg-[var(--accent-primary)] text-[var(--text-on-primary)] hover:bg-[var(--accent-primary-hover)] focus:ring-[var(--accent-primary)] shadow-[0_0_15px_var(--accent-glow)] hover:shadow-[0_0_25px_var(--accent-glow)]",
         secondary:
-            "bg-[#131A2A] text-white hover:bg-white/10 focus:ring-gray-600 border border-white/5",
+            "bg-[var(--bg-surface)] text-[var(--text-heading)] hover:bg-[var(--bg-surface-hover)] focus:ring-[var(--border-color)] border border-[var(--border-subtle)]",
         outline:
-            "border border-white/10 text-gray-300 hover:text-white hover:bg-white/5 focus:ring-primary-500/50",
+            "border border-[var(--border-color)] text-[var(--text-body)] hover:text-[var(--text-heading)] hover:bg-[var(--bg-surface-hover)] focus:ring-[var(--accent-primary)]/50",
         danger:
             "bg-red-600 text-white hover:bg-red-500 focus:ring-red-500 shadow-[0_0_15px_rgba(220,38,38,0.3)]",
         ghost:
-            "text-gray-400 hover:text-white hover:bg-white/5 focus:ring-gray-600",
+            "text-[var(--text-muted)] hover:text-[var(--text-heading)] hover:bg-[var(--bg-surface-hover)] focus:ring-[var(--border-color)]",
     };
 
     const sizes = {

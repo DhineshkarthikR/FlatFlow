@@ -57,26 +57,26 @@ export default function Sidebar({ role, onLogout, isOpen, setIsOpen }: SidebarPr
             {/* Mobile Overlay */}
             {isOpen && (
                 <div
-                    className="fixed inset-0 bg-[#0B0F19]/80 backdrop-blur-sm z-40 lg:hidden cursor-pointer"
+                    className="fixed inset-0 bg-[var(--overlay-bg)] backdrop-blur-sm z-40 lg:hidden cursor-pointer"
                     onClick={() => setIsOpen(false)}
                 />
             )}
 
             {/* Sidebar */}
             <aside
-                className={`fixed left-0 top-0 h-full w-64 bg-[#0B0F19] border-r border-white/5 flex flex-col z-50 transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
+                className={`fixed left-0 top-0 h-full w-64 bg-[var(--bg-primary)] border-r border-[var(--border-subtle)] flex flex-col z-50 transition-all duration-300 ease-in-out ${isOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
                     }`}
             >
-                <div className="p-6 border-b border-white/5 flex items-center justify-between">
+                <div className="p-6 border-b border-[var(--border-subtle)] flex items-center justify-between">
                     <Link href={role === "admin" ? "/admin" : "/dashboard"} className="flex items-center gap-3 group">
-                        <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-tr from-primary-600 to-cyan-500 shadow-[0_0_15px_rgba(79,70,229,0.3)] transition-all group-hover:scale-105">
+                        <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-tr from-[var(--accent-primary)] to-cyan-500 shadow-[0_0_15px_var(--accent-glow)] transition-all group-hover:scale-105">
                             <Layers className="h-4 w-4 text-white" />
                         </div>
-                        <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">FlatFlow</span>
+                        <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[var(--text-heading)] to-[var(--text-muted)]">FlatFlow</span>
                     </Link>
                     <button
                         aria-label="Close menu"
-                        className="lg:hidden p-2 text-muted hover:bg-white/10 hover:text-white rounded-lg transition-colors"
+                        className="lg:hidden p-2 text-[var(--text-muted)] hover:bg-[var(--bg-surface-hover)] hover:text-[var(--text-heading)] rounded-lg transition-colors"
                         onClick={() => setIsOpen(false)}
                     >
                         <X className="h-5 w-5" />
@@ -97,8 +97,8 @@ export default function Sidebar({ role, onLogout, isOpen, setIsOpen }: SidebarPr
                                 href={link.href}
                                 onClick={() => setIsOpen(false)}
                                 className={`group flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-300 ${isActive
-                                    ? "bg-primary-600/10 text-primary-400 border border-primary-500/20 shadow-[inset_0_0_10px_rgba(79,70,229,0.1)]"
-                                    : "text-gray-400 hover:text-white hover:bg-white/5 border border-transparent"
+                                    ? "bg-[var(--accent-primary)]/10 text-[var(--accent-primary)] border border-[var(--accent-primary)]/20 shadow-[inset_0_0_10px_var(--accent-glow)]"
+                                    : "text-[var(--text-muted)] hover:text-[var(--text-heading)] hover:bg-[var(--bg-surface-hover)] border border-transparent"
                                     }`}
                             >
                                 <div className={`transition-transform duration-300 ${isActive ? 'scale-110' : 'group-hover:scale-110'}`}>
@@ -110,13 +110,13 @@ export default function Sidebar({ role, onLogout, isOpen, setIsOpen }: SidebarPr
                     })}
                 </nav>
 
-                <div className="p-4 border-t border-white/5">
+                <div className="p-4 border-t border-[var(--border-subtle)]">
                     <button
                         onClick={() => {
                             setIsOpen(false);
                             onLogout();
                         }}
-                        className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-gray-400 hover:text-red-400 hover:bg-red-500/10 border border-transparent hover:border-red-500/20 transition-all duration-300 w-full"
+                        className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-[var(--text-muted)] hover:text-red-400 hover:bg-red-500/10 border border-transparent hover:border-red-500/20 transition-all duration-300 w-full"
                     >
                         <LogOut className="h-5 w-5" />
                         Logout

@@ -25,13 +25,15 @@ const config: Config = {
                     500: "#06b6d4",
                     600: "#0891b2",
                 },
-                background: "#0B0F19",
-                surface: "#131A2A",
-                surfaceHover: "#1E293B",
-                heading: "#FFFFFF",
-                body: "#94A3B8",
-                muted: "#64748B",
-                border: "#1E293B",
+                // Theme-aware semantic colors via CSS variables
+                background: "var(--bg-primary)",
+                surface: "var(--bg-surface)",
+                "surface-hover": "var(--bg-surface-hover)",
+                elevated: "var(--bg-elevated)",
+                heading: "var(--text-heading)",
+                body: "var(--text-body)",
+                muted: "var(--text-muted)",
+                border: "var(--border-color)",
             },
             fontFamily: {
                 sans: ["Plus Jakarta Sans", "Inter", "system-ui", "sans-serif"],
@@ -86,4 +88,3 @@ const config: Config = {
 };
 
 export default config;
-
