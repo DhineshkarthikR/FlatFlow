@@ -299,7 +299,7 @@ export default function LandingPage() {
                                         { icon: Shield, label: "Secure Operations" },
                                         { icon: MessageSquare, label: "Instant Resolution" },
                                     ].map((f) => (
-                                        <div key={f.label} className="flex items-center gap-2 px-4 py-2.5 bg-white/5 border border-white/10 rounded-lg text-sm text-gray-300">
+                                        <div key={f.label} className="flex items-center gap-2 px-4 py-2.5 bg-white/5 border border-white/10 rounded-lg text-sm text-gray-300 cursor-pointer">
                                             <f.icon className="w-4 h-4 text-primary-400" />
                                             {f.label}
                                         </div>
@@ -443,7 +443,7 @@ export default function LandingPage() {
                                         { icon: MessageCircle, label: "Auto-Reminders" },
                                         { icon: CheckCircle2, label: "Instant Approvals" },
                                     ].map((f) => (
-                                        <div key={f.label} className="flex items-center gap-2 px-4 py-2.5 bg-white/5 border border-white/10 rounded-lg text-sm text-gray-300">
+                                        <div key={f.label} className="flex items-center gap-2 px-4 py-2.5 bg-white/5 border border-white/10 rounded-lg text-sm text-gray-300 cursor-pointer">
                                             <f.icon className="w-4 h-4 text-cyan-400" />
                                             {f.label}
                                         </div>
@@ -484,7 +484,7 @@ export default function LandingPage() {
                             {features.map((feature) => (
                                 <div
                                     key={feature.title}
-                                    className="group relative bg-[#131A2A] rounded-2xl border border-white/5 p-8 hover:border-primary-500/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(79,70,229,0.2)]"
+                                    className="group relative bg-[#131A2A] rounded-2xl border border-white/5 p-8 hover:border-primary-500/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(79,70,229,0.2)] cursor-pointer"
                                 >
                                     <div className="absolute inset-0 bg-gradient-to-br from-primary-600/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                     <div className="relative z-10">

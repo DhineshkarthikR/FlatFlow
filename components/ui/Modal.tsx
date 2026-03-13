@@ -34,7 +34,7 @@ export default function Modal({
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
             <div
-                className="fixed inset-0 bg-[#0B0F19]/80 backdrop-blur-sm transition-opacity"
+                className="fixed inset-0 bg-[#0B0F19]/80 backdrop-blur-sm transition-opacity cursor-pointer"
                 onClick={onClose}
             />
             <div

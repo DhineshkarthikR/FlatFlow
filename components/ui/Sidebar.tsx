@@ -57,7 +57,7 @@ export default function Sidebar({ role, onLogout, isOpen, setIsOpen }: SidebarPr
             {/* Mobile Overlay */}
             {isOpen && (
                 <div
-                    className="fixed inset-0 bg-[#0B0F19]/80 backdrop-blur-sm z-40 lg:hidden"
+                    className="fixed inset-0 bg-[#0B0F19]/80 backdrop-blur-sm z-40 lg:hidden cursor-pointer"
                     onClick={() => setIsOpen(false)}
                 />
             )}
