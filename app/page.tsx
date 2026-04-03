@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import ScrollAnimations from "@/components/ui/ScrollAnimations";
 import {
     Layers,
@@ -34,31 +35,37 @@ const features = [
         icon: MessageSquare,
         title: "Complaint Management",
         description: "Raise, track, and resolve maintenance complaints with real-time status updates and image attachments.",
+        image: "/images/features/complaints.png"
     },
     {
         icon: CreditCard,
         title: "Online Payments",
         description: "Pay maintenance fees securely via Razorpay with instant receipt generation and payment history.",
+        image: "/images/features/payments.png"
     },
     {
         icon: UserCheck,
         title: "Visitor Logs",
         description: "Track all visitor entries and exits with timestamps for enhanced community security.",
+        image: "/images/features/visitor.png"
     },
     {
         icon: Activity,
         title: "Reports & Analytics",
         description: "Comprehensive dashboards with revenue tracking, expense reports, and occupancy metrics.",
+        image: "/images/features/analytics.png"
     },
     {
         icon: Shield,
         title: "Secure Access",
         description: "Role-based access control with encrypted authentication and protected admin routes.",
+        image: "/images/features/visitor.png" // Reusing visitor image for security abstract
     },
     {
         icon: Layers,
         title: "Event Booking",
         description: "Book clubhouse and community facilities with conflict detection and calendar management.",
+        image: "/images/features/booking.png"
     },
 ];
 
@@ -146,132 +153,21 @@ export default function LandingPage() {
                             </Link>
                         </div>
 
-                        {/* ── Dashboard Animated Preview ── */}
-                        <div className="mt-20 lg:mt-32 relative mx-auto max-w-6xl" data-animate="scale">
-                            <div className="relative rounded-2xl border border-white/10 bg-[#131A2A]/60 backdrop-blur-2xl shadow-[0_0_50px_rgba(0,0,0,0.5)] p-2 sm:p-4 animate-float aspect-video overflow-hidden">
-                                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 via-transparent to-cyan-500/5 pointer-events-none" />
-                                <div className="h-full w-full rounded-xl bg-[#0B0F19]/90 border border-white/10 flex flex-col overflow-hidden relative backdrop-blur-3xl shadow-2xl">
-                                    {/* Browser Header */}
-                                    <div className="h-12 border-b border-white/10 flex items-center px-4 justify-between bg-white/5 relative z-10">
-                                        <div className="flex gap-2">
-                                            <div className="w-3.5 h-3.5 rounded-full bg-red-500/90 shadow-[0_0_10px_rgba(239,68,68,0.5)]" />
-                                            <div className="w-3.5 h-3.5 rounded-full bg-yellow-500/90 shadow-[0_0_10px_rgba(234,179,8,0.5)]" />
-                                            <div className="w-3.5 h-3.5 rounded-full bg-green-500/90 shadow-[0_0_10px_rgba(34,197,94,0.5)]" />
-                                        </div>
-                                        <div className="absolute left-1/2 -translate-x-1/2 bg-black/40 rounded-md h-7 w-1/3 flex items-center justify-center border border-white/5">
-                                            <span className="text-[10px] text-gray-500 font-mono tracking-widest flex items-center gap-2">
-                                                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
-                                                admin.flatflow.io
-                                            </span>
-                                        </div>
-                                    </div>
-                                    {/* App Content */}
-                                    <div className="flex-1 flex overflow-hidden">
-                                        {/* Sidebar */}
-                                        <div className="w-48 xl:w-56 border-r border-white/10 bg-white/[0.02] p-4 flex flex-col gap-2 relative z-10">
-                                            <div className="flex items-center gap-2 mb-6 px-2">
-                                                <div className="w-6 h-6 rounded bg-gradient-to-tr from-primary-600 to-cyan-500 flex items-center justify-center shadow-[0_0_10px_rgba(79,70,229,0.5)]">
-                                                    <Layers className="w-3.5 h-3.5 text-white" />
-                                                </div>
-                                                <span className="text-sm font-heading font-bold text-white">FlatFlow</span>
-                                            </div>
-                                            <div className="space-y-1 relative">
-                                                <div className="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary-600/20 text-primary-400 border border-primary-500/30 shadow-[inset_0_0_10px_rgba(79,70,229,0.1)] transition-colors" style={{ animation: 'nav-highlight 8s ease-in-out infinite' }}>
-                                                    <BarChart3 className="w-4 h-4" />
-                                                    <span className="text-xs font-medium">Dashboard</span>
-                                                </div>
-                                                <div className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 opacity-80">
-                                                    <MessageSquare className="w-4 h-4" />
-                                                    <span className="text-xs font-medium">Complaints</span>
-                                                </div>
-                                                <div className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 opacity-80">
-                                                    <CreditCard className="w-4 h-4" />
-                                                    <span className="text-xs font-medium">Payments</span>
-                                                </div>
-                                                <div className="flex items-center gap-3 px-3 py-2 rounded-lg text-gray-400 opacity-80">
-                                                    <Users className="w-4 h-4" />
-                                                    <span className="text-xs font-medium">Residents</span>
-                                                </div>
-                                            </div>
-                                            <div className="mt-auto pt-4 border-t border-white/10">
-                                                <div className="flex items-center gap-2 px-2">
-                                                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 border border-white/20 p-0.5 flex items-center justify-center"><span className="text-[10px] font-bold text-white">DK</span></div>
-                                                    <div className="flex flex-col"><span className="text-[10px] font-medium text-gray-200">Dhinesh K.</span><span className="text-[9px] text-gray-500">Admin</span></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {/* Main Content */}
-                                        <div className="flex-1 p-6 flex flex-col gap-6 relative overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary-900/10 via-[#0B0F19]/0 to-[#0B0F19]/0">
-                                            <div className="flex items-center justify-between">
-                                                <div><h3 className="text-lg font-heading font-bold text-white tracking-wide">Overview</h3><p className="text-xs text-gray-400">Welcome back, here&apos;s what&apos;s happening today.</p></div>
-                                                <div className="flex gap-2">
-                                                    <div className="h-8 px-3 rounded-lg bg-white/5 border border-white/10 flex items-center gap-2 text-xs text-gray-300"><span>This Month</span><svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg></div>
-                                                    <div className="h-8 px-4 rounded-lg bg-primary-600 text-white flex items-center text-xs font-medium shadow-[0_0_15px_rgba(79,70,229,0.4)] transition-transform" style={{ animation: 'button-press 8s ease-in-out infinite 2s' }}>Generate Report</div>
-                                                </div>
-                                            </div>
-                                            {/* Stats */}
-                                            <div className="grid grid-cols-3 gap-4">
-                                                {[
-                                                    { label: "Total Revenue", val: "₹1.42M", trend: "+12.5%", color: "primary", Icon: IndianRupee },
-                                                    { label: "Active Complaints", val: "24", trend: "+4 New", color: "cyan", Icon: MessageSquare, trendColor: "text-red-400" },
-                                                    { label: "Occupancy Rate", val: "96%", trend: "+1.2%", color: "purple", Icon: Layers },
-                                                ].map((s, i) => (
-                                                    <div key={i} className="bg-[#131A2A]/80 backdrop-blur-md rounded-xl border border-white/5 p-4 flex flex-col gap-2 relative overflow-hidden">
-                                                        <div className={`absolute top-0 right-0 w-16 h-16 bg-${s.color}-500/10 blur-xl rounded-full translate-x-1/2 -translate-y-1/2`} />
-                                                        <div className="flex items-center justify-between">
-                                                            <span className="text-[11px] font-medium text-gray-400">{s.label}</span>
-                                                            <div className={`w-6 h-6 rounded-md bg-${s.color}-500/20 text-${s.color}-400 flex items-center justify-center border border-${s.color}-500/20`}><s.Icon className="w-3 h-3" /></div>
-                                                        </div>
-                                                        <div className="flex items-end gap-2">
-                                                            <span className="text-2xl font-bold text-white">{s.val}</span>
-                                                            <span className={`text-[10px] ${s.trendColor || 'text-green-400'} mb-1`}>{s.trend}</span>
-                                                        </div>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                            {/* Chart & Activity */}
-                                            <div className="flex-1 grid grid-cols-3 gap-4 min-h-0">
-                                                <div className="col-span-2 bg-[#131A2A]/80 backdrop-blur-md rounded-xl border border-white/5 p-4 flex flex-col relative overflow-hidden">
-                                                    <div className="flex items-center justify-between mb-4">
-                                                        <span className="text-[11px] font-medium text-gray-300">Revenue Trend</span>
-                                                        <span className="text-[10px] text-primary-400 bg-primary-500/10 px-2 py-0.5 rounded border border-primary-500/20">Detailed View</span>
-                                                    </div>
-                                                    <div className="flex-1 relative flex items-end gap-2 pb-2">
-                                                        {[40, 65, 45, 80, 55, 90, 75, 100, 85].map((h, i) => (
-                                                            <div key={i} className="flex-1 flex flex-col justify-end gap-2 group">
-                                                                <div className={`w-full rounded-sm transition-all duration-500 ${i === 7 ? 'bg-primary-500 shadow-[0_0_10px_rgba(79,70,229,0.5)]' : 'bg-primary-500/20 border border-primary-500/10'}`} style={{ '--target-height': `${h}%`, animation: `bar-grow 8s ease-in-out infinite ${i * 0.1}s` } as React.CSSProperties} />
-                                                                <div className="text-[8px] text-gray-600 text-center uppercase">{['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'][i]}</div>
-                                                            </div>
-                                                        ))}
-                                                    </div>
-                                                </div>
-                                                <div className="col-span-1 bg-[#131A2A]/80 backdrop-blur-md rounded-xl border border-white/5 p-4 flex flex-col">
-                                                    <span className="text-[11px] font-medium text-gray-300 mb-4">Recent Activity</span>
-                                                    <div className="flex-1 space-y-3 overflow-hidden">
-                                                        {[
-                                                            { action: "Payment Received", sub: "Apt 4B", amt: "+₹4,500", color: "text-green-400", bg: "bg-green-500/10 border-green-500/20" },
-                                                            { action: "Complaint Fixed", sub: "Lift 2", amt: "Resolved", color: "text-cyan-400", bg: "bg-cyan-500/10 border-cyan-500/20" },
-                                                            { action: "Visitor Alert", sub: "7A", amt: "09:42 AM", color: "text-gray-400", bg: "bg-white/5 border-white/10" },
-                                                            { action: "Payment", sub: "Apt 1C", amt: "+₹4,500", color: "text-green-400", bg: "bg-green-500/10 border-green-500/20" },
-                                                        ].map((item, i) => (
-                                                            <div key={i} className="flex items-center justify-between pb-3 border-b border-white/5 last:border-0 last:pb-0 opacity-0" style={{ animation: `feed-slide-in 8s ease-in-out infinite ${i * 1.5 + 3}s` }}>
-                                                                <div className="flex items-center gap-2">
-                                                                    <div className={`w-8 h-8 rounded-full flex items-center justify-center border ${item.bg}`}><div className={`w-1.5 h-1.5 rounded-full ${item.color.replace('text-', 'bg-')}`} /></div>
-                                                                    <div className="flex flex-col"><span className="text-[10px] text-gray-300">{item.action}</span><span className="text-[9px] text-gray-500">{item.sub}</span></div>
-                                                                </div>
-                                                                <span className={`text-[10px] font-medium ${item.color}`}>{item.amt}</span>
-                                                            </div>
-                                                        ))}
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            {/* Fake Cursor for Demo */}
-                                            <div className="absolute top-0 left-0 pointer-events-none z-50 text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.8)]" style={{ animation: 'cursor-demo 8s ease-in-out infinite' }}>
-                                                <MousePointer2 className="w-5 h-5 fill-white" />
-                                            </div>
-                                        </div>
-                                    </div>
+                        {/* ── Dashboard Image Preview ── */}
+                        <div className="mt-20 lg:mt-28 relative mx-auto max-w-6xl w-full px-4 sm:px-0" data-animate="scale">
+                            <div className="relative rounded-2xl border border-white/10 bg-[#131A2A]/60 backdrop-blur-2xl shadow-[0_0_50px_rgba(0,0,0,0.5)] p-2 sm:p-4 animate-float aspect-video overflow-hidden group">
+                                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/20 via-transparent to-cyan-500/10 pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                                <div className="relative w-full h-full rounded-xl overflow-hidden border border-white/10 shadow-2xl">
+                                    <Image
+                                        src="/images/hero-dashboard.png"
+                                        alt="FlatFlow Dashboard Interface Preview"
+                                        fill
+                                        sizes="(max-width: 1200px) 100vw, 1200px"
+                                        priority
+                                        className="object-cover object-center transform transition-transform duration-700 group-hover:scale-105"
+                                    />
+                                    {/* Overlay gradient for blending into the dark theme */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19]/80 via-transparent to-transparent pointer-events-none" />
                                 </div>
                             </div>
                         </div>
@@ -484,15 +380,29 @@ export default function LandingPage() {
                             {features.map((feature) => (
                                 <div
                                     key={feature.title}
-                                    className="group relative bg-[#131A2A] rounded-2xl border border-white/5 p-8 hover:border-primary-500/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(79,70,229,0.2)] cursor-pointer"
+                                    className="group relative bg-[#131A2A] rounded-2xl border border-white/5 overflow-hidden hover:border-primary-500/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(79,70,229,0.2)] cursor-pointer flex flex-col"
                                 >
-                                    <div className="absolute inset-0 bg-gradient-to-br from-primary-600/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                                    <div className="relative z-10">
-                                        <div className="h-14 w-14 bg-[#0B0F19] border border-white/10 rounded-xl flex items-center justify-center mb-6 text-primary-400 group-hover:text-cyan-400 group-hover:scale-110 transition-all duration-300 shadow-inner group-hover:shadow-[0_0_20px_rgba(79,70,229,0.3)] group-hover:border-primary-500/30">
-                                            <feature.icon className="h-7 w-7" />
+                                    <div className="absolute inset-0 bg-gradient-to-br from-primary-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-10" />
+                                    
+                                    {/* Feature Image Area */}
+                                    <div className="relative h-48 w-full bg-[#0B0F19] overflow-hidden">
+                                        <Image
+                                            src={feature.image}
+                                            alt={feature.title}
+                                            fill
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                            className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-[#131A2A] via-[#131A2A]/40 to-transparent pointer-events-none" />
+                                    </div>
+
+                                    {/* Text Content */}
+                                    <div className="relative z-20 p-8 pt-4 flex-1 flex flex-col">
+                                        <div className="h-12 w-12 bg-[#0B0F19] border border-white/10 rounded-xl flex items-center justify-center mb-5 mt-[-30px] z-30 text-primary-400 group-hover:text-cyan-400 group-hover:scale-110 transition-all duration-300 shadow-lg group-hover:shadow-[0_0_20px_rgba(79,70,229,0.3)] group-hover:border-primary-500/30">
+                                            <feature.icon className="h-5 w-5" />
                                         </div>
                                         <h4 className="text-xl font-heading font-semibold text-white mb-3">{feature.title}</h4>
-                                        <p className="text-base text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">{feature.description}</p>
+                                        <p className="text-base text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors flex-1">{feature.description}</p>
                                     </div>
                                 </div>
                             ))}
